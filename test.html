@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- <link rel="icon" href="파비콘로고넣는곳" type="image/x-icon">  -->
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="js/swiper.min.js"></script>
+    <title>팝마트_찜목록</title>
+</head>
+<body>
+    <div class="wrapper main_site">
+        <div class="homeMain_site">
+            <header>
+                <div class="top">
+                    <h1><a href=""><img src="img/login/logo.png" alt="로고"></a></h1>
+                    <ul>
+                        <li><span>menu</span></li>
+                        <li><a href="">검색</a></li>
+                        <li><a href="">장바구니</a></li>
+                    </ul>
+                </div><!--top : END-->
+                <div class="botton">
+                    <div class="swiper gnbb">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide on"><a href="">투데이홈</a></li>
+                            <li class="swiper-slide"><a href="">베스트샵</a></li>
+                            <li class="swiper-slide"><a href="">타임딜24</a></li>
+                            <li class="swiper-slide"><a href="">구매후기</a></li>
+                            <li class="swiper-slide"><a href="">매장안내</a></li>
+                            <li class="swiper-slide"><a href="">고객센터</a></li>
+                        </ul>
+                    </div>
+                    <script>
+                        // 스와이퍼 초기화
+                        var swiper = new Swiper('.swiper.gnbb', {
+                            // 스와이퍼 옵션 설정
+                            slidesPerView: 'auto',
+                            spaceBetween:0, // 슬라이드 간의 간격 (px)
+                        });
+                    </script>
+                </div><!--botton : END-->
+            </header>
+            <div class="main">
+                <div class="wishList">
+                    <h3>찜 목록</h3>
+                    <style>
+                        .slider_tab {
+                            position: relative;
+                            width: 100%;
+                        }
+                        
+                        .slider_tab .slider_main {
+                            display: flex;
+                            transition: transform 0.4s;
+                        }
+                        
+                        .slider_tab .slider_main li {
+                            width: 100%;
+                            flex-shrink: 0;
+                        }
+                        
+                        .slider_tab .slideTabMenu {
+                            display: flex;
+                            justify-content: center;
+                            margin-top: 10px;
+                        }
+                        
+                        .slider_tab .slideTabMenu li {
+                            width: 10px;
+                            height: 10px;
+                            margin: 0 5px;
+                            border-radius: 50%;
+                            background-color: #888;
+                            cursor: pointer;
+                        }
+                        
+                        .slider_tab .slideTabMenu li.active {
+                            background-color: red;
+                        }
+                        .slider_w{width: 100%;overflow: hidden;}
+                    </style>
+                    </head>
+                    <body>
+                        <div class="slider_w">
+                            <div class="slider_tab">
+                                <ul class="slideTabMenu">
+                                    <li class="menul_list active"></li>
+                                    <li class="menul_list"></li>
+                                    <li class="menul_list"></li>
+                                    <!-- Add more dots as needed -->
+                                </ul>
+                                <ul class="slider_main">
+                                    <li>
+                                        <div class="slide_content" style="background-color: #f00;">
+                                        <h2>Slide 1</h2>
+                                        <p>Slide 1 description</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="slide_content" style="background-color: #0f0;">
+                                        <h2>Slide 2</h2>
+                                        <p>Slide 2 description</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="slide_content" style="background-color: #111;">
+                                        <h2>Slide 3</h2>
+                                        <p>Slide 3 description</p>
+                                        </div>
+                                    </li>
+                                <!-- Add more slides as needed -->
+                                </ul>
+                            </div>
+                        </div><!--slider_w : END-->
+                    <script>
+                        const slider = document.querySelector('.slider_tab');
+                        const sliderMain = document.querySelector('.slider_main');
+                        const sliderSlides = document.querySelectorAll('.slider_main li');
+                        const sliderDots = document.querySelectorAll('.slideTabMenu li');
+                        const prevBtn = document.querySelector('.prev_btn');
+                        const nextBtn = document.querySelector('.next_btn');
+
+                        let count = 0;
+                        let slideWidth = 0;
+                        let touchstartX = 0;
+                        let touchendX = 0;
+
+                        const initSlider = () => {
+                            slider.style.visibility = 'visible';
+                            slideWidth = slider.clientWidth;
+
+                            sliderMain.style.width = `${sliderSlides.length * slideWidth}px`;
+
+                            sliderSlides.forEach((slide, index) => {
+                                slide.style.width = `${slideWidth}px`;
+                                // slide.style.transform = `translateX(${index * slideWidth}px)`;
+                            });
+
+                            sliderDots.forEach((dot, index) => {
+                                dot.addEventListener('click', () => {
+                                count = index;
+                                moveSlider();
+                                });
+                            });
+
+                            slider.addEventListener('touchstart', handleTouchStart, false);
+                            slider.addEventListener('touchend', handleTouchEnd, false);
+                        };
+
+                        const moveSlider = () => {
+                            sliderMain.style.transform = `translateX(-${count * slideWidth}px)`;
+
+                            sliderDots.forEach(dot => dot.classList.remove('active'));
+                            sliderDots[count].classList.add('active');
+                        };
+
+                        const handleTouchStart = (event) => {
+                            touchstartX = event.changedTouches[0].screenX;
+                        };
+
+                        const handleTouchEnd = (event) => {
+                            touchendX = event.changedTouches[0].screenX;
+                            handleSwipeGesture();
+                        };
+
+                        const handleSwipeGesture = () => {
+                            const swipeThreshold = 100;
+
+                            if (touchendX < touchstartX - swipeThreshold) {
+                                count++;
+                                if (count >= sliderSlides.length) count = sliderSlides.length - 1;
+                                moveSlider();
+                            } else if (touchendX > touchstartX + swipeThreshold) {
+                                count--;
+                                if (count < 0) count = 0;
+                                moveSlider();
+                            }
+                        };
+
+
+                        initSlider();
+                    </script>
+                        
+
+            </div><!--main : END-->
+            <div class="bottomMenu">
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="img/homeH.png" alt="홈" >
+                            <p>홈</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/ranking.png" alt="랭킹" class="on">
+                            <img src="img/rankingH.png" alt="랭킹" class="off">
+                            <p>랭킹</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/star.png" alt="찜" class="on">
+                            <img src="img/starH.png" alt="찜" class="off">
+                            <p>찜</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/my.png" alt="" class="on">
+                            <img src="img/myH.png" alt="" class="off">
+                            <p>마이페이지</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!--homeMain_site : END-->
+    </div><!--wrapper : END-->
+    <script src="js/signup.js"></script>
+    <script src="js/common.js"></script>
+
+</body>
+</html>

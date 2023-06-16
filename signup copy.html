@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+
+
+    <title>연습</title>
+    <style>
+        li{list-style:none;}
+        .tab_menu{position:relative;}
+        .tab_menu .list{overflow:hidden;}
+        .tab_menu .list li{float:left; margin-right:14px;}
+        .tab_menu .list li.is_on .btn{font-weight:bold; color:green;}
+        .tab_menu .list .btn{font-size:13px;}
+        .tab_menu .cont_area{margin-top:10px;}
+        .tab_menu .cont_area .cont{display:none; background:#555; color:#fff; text-align:center; width:250px; height:100px; line-height:100px;}
+    </style>
+</head>
+<body>
+
+      
+        <div class="tab_menu">
+            <ul class="list">
+                <li class="is_on">
+                    <a class="btn">탭 버튼1</a>
+                </li>
+                <li>
+                    <a class="btn">탭 버튼2</a>
+                </li>
+                <li>
+                    <a class="btn">탭 버튼3</a>
+                </li>
+            </ul><!--list : END-->
+            
+            <div class="cont_area">
+                <div class="cont">
+                    탭 컨텐츠1
+                </div>
+                <div class="cont">
+                    탭 컨텐츠2
+                </div>
+                <div class="cont">
+                    탭 컨텐츠3
+                </div>
+            </div><!--cont_area : END-->
+        </div><!--tab_menu : END-->
+    
+    <script>
+            const tabList = document.querySelectorAll('.tab_menu .list li');
+            const contents = document.querySelectorAll('.tab_menu .cont_area .cont');
+            let activeIndex = 0; // 현재 활성화된 탭 인덱스 (기본: 0번째 탭 활성화)
+
+            // 초기로 첫 번째 탭 활성화
+            tabList[activeIndex].classList.add('is_on');
+            contents[activeIndex].style.display = 'block';
+
+            tabList.forEach((tab, index) => {
+                tab.addEventListener('click', () => {
+                    // 모든 컨텐츠 비활성화
+                    contents.forEach(content => {
+                    content.style.display = 'none';
+                    });
+
+                    // 모든 탭 버튼 비활성화
+                    tabList.forEach(tab => {
+                    tab.classList.remove('is_on');
+                    });
+
+                    // 현재 클릭한 탭과 해당 탭 이전의 모든 탭 컨텐츠 활성화
+                    for (let i = 0; i <= index; i++) {
+                    contents[i].style.display = 'block';
+                    }
+
+                    // 클릭한 탭 버튼 활성화
+                    tabList[index].classList.add('is_on');
+
+                    activeIndex = index;
+                });
+            });
+
+
+    </script>
+</body>
+</html>

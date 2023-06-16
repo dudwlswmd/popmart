@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- <link rel="icon" href="파비콘로고넣는곳" type="image/x-icon">  -->
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- <link rel="stylesheet" href="css/swiper.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
+    <script src="js/swiper.min.js"></script>
+
+    <title>팝마트_회원가입</title>
+
+</head>
+<body>
+    <div class="wrapper signupWrapper">
+        <div class="signup">
+            <div class="title"><h1 style="font-size: 21px;">SIGNUP</h1></div>
+            <div class="email">
+                <input class="emailValue" type="text" placeholder="이메일을 입력해 주세요.">
+                <div class="emailError error"></div>
+            </div>
+            <div class="name">
+                <input class="nameValue"  type="text" placeholder="이름을 입력해 주세요.">
+                <div class="nameError error" ></div>
+            </div>
+            <div class="nick">
+                <input class="nickValue"  type="text" placeholder="닉네임을 입력해 주세요.">
+                <div class="nickError error" ></div>
+            </div>
+            <div class="password">
+                <input class="passwordValue" type="password" placeholder="비밀번호를 입력해 주세요.">
+                <div class="passwordError error" ></div>
+            </div>
+            <div class="passwordCheck">
+                <input class="passwordCheckValue" type="password" placeholder="비밀번호를 다시 입력해 주세요.">
+                <div class="passwordCheckError error" ></div>
+            </div>
+            <div class="area">
+                <select id="area">
+                    <option selected disabled>지역을 선택하세요.</option>
+                    <option>서울</option>
+                    <option>인천</option>
+                    <option>경기</option>
+                </select>
+                <div id="areaError" class="error"></div>
+            </div>
+            <div class="gender">
+                <input id="gender_man" type="radio" name="gender">
+                <label for="gender_man">남성</label>
+                <input id="gender_woman" type="radio" name="gender">
+                <label for="gender_woman">여성</label>
+                <div id="genderError" class="error"></div>
+            </div>
+            <div class="line">
+            </div>
+            <div class="signUp">
+                <button id="signUpButton"  >가입하기</button>
+            </div>
+        </div><!--signup : END-->
+    </div><!--wrapper : END-->
+    <script src="js/signup.js"></script>
+
+</body>
+</html>

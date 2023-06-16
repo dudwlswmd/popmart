@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- <link rel="icon" href="파비콘로고넣는곳" type="image/x-icon">  -->
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="js/swiper.min.js"></script>
+    <title>팝마트_찜목록</title>
+</head>
+<body>
+    <div class="wrapper main_site">
+        <div class="homeMain_site sub">
+            <header>
+                <div class="top">
+                    <h1><a href=""><img src="img/login/logo.png" alt="로고"></a></h1>
+                    <ul>
+                        <li><span>menu</span></li>
+                        <li><a href="">검색</a></li>
+                        <li><a href="">장바구니</a></li>
+                    </ul>
+                </div><!--top : END-->
+
+            </header>
+            <div class="main">
+                <div class="wishList">
+                    <h3>찜 목록</h3>
+                    
+                    <div class="slider_w">
+                        <div class="slider_tab">
+                            <ul class="wishList_tab slideTabMenu">
+                                <li class="menul_list active">브랜드</li>
+                                <li class="menul_list">아이템</li>
+                            </ul>
+                            <ul class="slider_main">
+                                <li>
+                                    <div class="slide_content ">
+                                        <ul class="brand">
+                                            <!-- <li>
+                                                <p class="img"><img src="img/cute02.jpg" alt="찜한 브랜드목록"></p>
+                                                <dl>
+                                                    <dt class="title">브랜드이름</dt>
+                                                    <dd class="text">찜한 상품</dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <p class="img"><img src="img/cute03.jpg" alt="찜한 브랜드목록"></p>
+                                                <dl>
+                                                    <dt class="title">브랜드이름</dt>
+                                                    <dd class="text">찜한 상품</dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <p class="img"><img src="img/cute04.jpg" alt="찜한 브랜드목록"></p>
+                                                <dl>
+                                                    <dt class="title">브랜드이름</dt>
+                                                    <dd class="text">찜한 상품</dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <p class="img"><img src="img/cute01.jpg" alt="찜한 브랜드목록"></p>
+                                                <dl>
+                                                    <dt class="title">브랜드이름</dt>
+                                                    <dd class="text">찜한 상품</dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <p class="img"><img src="img/cute04.jpg" alt="찜한 브랜드목록"></p>
+                                                <dl>
+                                                    <dt class="title">브랜드이름</dt>
+                                                    <dd class="text">찜한 상품</dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <p class="img"><img src="img/cute01.jpg" alt="찜한 브랜드목록"></p>
+                                                <dl>
+                                                    <dt class="title">브랜드이름</dt>
+                                                    <dd class="text on">찜한 상품</dd>
+                                                </dl>
+                                            </li> -->
+                                        </ul>
+                                    </div><!--slide_content : END-->
+                                </li>
+                                <li>
+                                    <div class="slide_content item">
+                                        <ul>
+                                            <li>
+                                                <p class="img"><img src="img/fantasy01.jpg" alt="찜한 아이템목록"></p>
+                                                <dl>
+                                                    <dt class="title">몰리 해변 뮤직 페스티벌 BJD</dt>
+                                                    <dd class="description">Molly Beach Music Festival BJD </dd>
+                                                    <dd class="price">210,000원</dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <p class="img"><img src="img/fantasy02.jpg" alt="찜한 아이템목록"></p>
+                                                <dl>
+                                                    <dt class="title">몰리 해변 뮤직 페스티벌 BJD</dt>
+                                                    <dd class="description">Molly Beach Music Festival BJD </dd>
+                                                    <dd class="price">210,000원</dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div><!--slide_content : END-->
+                                </li>
+                            <!-- Add more slides as needed -->
+                            </ul>
+                        </div>
+                    </div><!--slider_w : END-->
+
+                    <script>
+
+                        // 로컬 스토리지에서 clickedImages 값을 가져와서 배열로 변환
+                        const clickedImages = JSON.parse(localStorage.getItem('favoritesArray')) || [];
+                        const listContainer = document.querySelector('.slide_content .brand');
+                                                // 배열을 사용하여 원하는 동작 수행
+                        clickedImages.forEach(Event => {
+                                                    // 각 이미지에 대한 동작 수행 (예: 화면에 표시)
+                        const listItem = document.createElement('li');
+                            listItem.innerHTML = `
+                                    <p class="img"><img src="${Event.imageUrl}" alt="찜한 아이템목록"></p>
+                                    <dl>
+                                        <dt class="title">${Event.text}</dt>
+                                        <dd class="text on">찜한 상품</dd>
+                                    </dl>
+                            `;
+                            listContainer.appendChild(listItem);
+                        });
+
+
+                        async function loadSlideContent() {
+                            const slideContent = document.querySelector('.slide_content.item ul');
+
+                            if (slideContent) {
+                                try {
+                                const storedData = await new Promise((resolve, reject) => {
+                                    const data = localStorage.getItem('starList');
+                                    if (data) {
+                                    resolve(data);
+                                    } else {
+                                    reject('No data found');
+                                    }
+                                });
+
+                                const items = JSON.parse(storedData);
+                                slideContent.innerHTML = items
+                                    .map((item) => `
+                                    <li>
+                                        <p class="img"><img src="${item.imgSrc}" alt="찜한 아이템목록"></p>
+                                        <dl>
+                                        <dt class="title">${item.title}</dt>
+                                        <dd class="description">${item.description}</dd>
+                                        <dd class="price">${item.price}</dd>
+                                        </dl>
+                                    </li>
+                                    `)
+                                    .join('');
+                                } catch (error) {
+                                console.error(error);
+                                }
+                            }
+                        }
+
+                        loadSlideContent();
+
+                    </script>
+
+                </div><!--wishList : END-->
+
+            </div><!--main : END-->
+            <div class="bottomMenu">
+                <ul>
+                    <li>
+                        <a href="./home.html">
+                            <img src="img/homeH.png" alt="홈" >
+                            <p>홈</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/ranking.png" alt="랭킹" class="on">
+                            <img src="img/rankingH.png" alt="랭킹" class="off">
+                            <p>랭킹</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="./wishList.html">
+                            <img src="img/starB.png" alt="찜" class="on">
+                            <img src="img/starH.png" alt="찜" class="off">
+                            <p>찜</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/my.png" alt="" class="on">
+                            <img src="img/myH.png" alt="" class="off">
+                            <p>마이페이지</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!--homeMain_site : END-->
+    </div><!--wrapper : END-->
+    <!-- <script src="js/signup.js"></script> -->
+    <script  src="js/common.js"></script>
+    <script>
+
+
+        const slider = document.querySelector('.slider_tab');
+        const sliderMain = document.querySelector('.slider_main');
+        const sliderSlides = document.querySelectorAll('.slider_main > li');
+        const sliderDots = document.querySelectorAll('.slideTabMenu > li');
+        const prevBtn = document.querySelector('.prev_btn');
+        const nextBtn = document.querySelector('.next_btn');
+
+        let count = 0;
+        let slideWidth = 0;
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        const initSlider = () => {
+            slider.style.visibility = 'visible';
+            slideWidth = slider.clientWidth;
+
+            sliderMain.style.width = `${sliderSlides.length * slideWidth}px`;
+
+            sliderSlides.forEach((slide, index) => {
+                slide.style.width = `${slideWidth}px`;
+                // slide.style.transform = `translateX(${index * slideWidth}px)`;
+            });
+
+            sliderDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                count = index;
+                moveSlider();
+                });
+            });
+
+            slider.addEventListener('touchstart', handleTouchStart, false);
+            slider.addEventListener('touchend', handleTouchEnd, false);
+        };
+
+        const moveSlider = () => {
+            sliderMain.style.transform = `translateX(-${count * slideWidth}px)`;
+
+            sliderDots.forEach(dot => dot.classList.remove('active'));
+            sliderDots[count].classList.add('active');
+        };
+
+        const handleTouchStart = (event) => {
+            touchstartX = event.changedTouches[0].screenX;
+        };
+
+        const handleTouchEnd = (event) => {
+            touchendX = event.changedTouches[0].screenX;
+            handleSwipeGesture();
+        };
+
+        const handleSwipeGesture = () => {
+            const swipeThreshold = 100;
+
+            if (touchendX < touchstartX - swipeThreshold) {
+                count++;
+                if (count >= sliderSlides.length) count = sliderSlides.length - 1;
+                moveSlider();
+            } else if (touchendX > touchstartX + swipeThreshold) {
+                count--;
+                if (count < 0) count = 0;
+                moveSlider();
+            }
+        };
+
+
+        initSlider();
+
+        
+    </script>
+</body>
+</html>

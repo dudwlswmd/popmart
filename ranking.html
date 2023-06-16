@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- <link rel="icon" href="파비콘로고넣는곳" type="image/x-icon">  -->
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="js/swiper.min.js"></script>
+    <title>팝마트_랭킹</title>
+</head>
+<body>
+    <div class="wrapper main_site">
+        <div class="homeMain_site sub">
+            <header>
+                <div class="top">
+                    <h1><a href=""><img src="img/login/logo.png" alt="로고"></a></h1>
+                    <ul>
+                        <li><span>menu</span></li>
+                        <li><a href="search.html">검색</a></li>
+                        <li><a href="">장바구니</a></li>
+                    </ul>
+                </div><!--top : END-->
+
+            </header>
+            <div class="main">
+                <div class="rankingList">
+                    <ul>
+                        <!--랭킹목록 들어갈곳-->
+                    </ul>
+                </div><!--rankingList : END-->
+
+            </div><!--main : END-->
+            <div class="bottomMenu">
+                <ul>
+                    <li>
+                        <a href="./home.html">
+                            <img src="img/homeH.png" alt="홈" >
+                            <p>홈</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="">
+                            <img src="img/ranking.png" alt="랭킹" class="on">
+                            <img src="img/rankingH.png" alt="랭킹" class="off">
+                            <p>랭킹</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./wishList.html">
+                            <img src="img/starB.png" alt="찜" class="on">
+                            <img src="img/starH.png" alt="찜" class="off">
+                            <p>찜</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/my.png" alt="" class="on">
+                            <img src="img/myH.png" alt="" class="off">
+                            <p>마이페이지</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!--homeMain_site : END-->
+    </div><!--wrapper : END-->
+    <!-- <script src="js/signup.js"></script> -->
+    <script  src="js/common.js"></script>
+    <script>
+// 랭킹 목록을 표시할 요소 선택
+const rankingList = document.querySelector('.rankingList ul');
+
+// 로컬 스토리지에서 랭킹 데이터 가져오기
+const rankingData = JSON.parse(localStorage.getItem('rankingData')) || [];
+
+// 랭킹 목록 초기화
+rankingList.innerHTML = '';
+
+// 랭킹 목록 생성 및 표시
+rankingData.forEach((item, index) => {
+  // 랭킹 아이템 요소 생성
+  const li = document.createElement('li');
+
+  // 랭킹 아이템의 HTML 구조 생성
+  const html = `
+    <p class="ranking_number">${index + 1}</p>
+    <p class="img"><img src="${item.image}" alt=""></p>
+    <dl>
+      <dt class="title">${item.title}</dt>
+      <dd class="description">${item.description}</dd>
+      <dd class="price">${item.price}</dd>
+    </dl>
+  `;
+
+  // 랭킹 아이템에 HTML 추가
+  li.innerHTML = html;
+
+  // 랭킹 목록에 아이템 추가
+  rankingList.appendChild(li);
+});
+
+    </script>
+</body>
+</html>

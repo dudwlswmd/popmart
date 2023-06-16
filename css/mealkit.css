@@ -1,0 +1,510 @@
+@charset  "UTF-8" ;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+main {
+  /* text-align: center; */
+  width: 100%;
+  margin: auto;
+
+}
+.name {
+  display: inline-block;
+  position: absolute;
+  top:250px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.name h1 {
+  font-size: 50px;
+
+}
+.section_1 {
+  margin-top: 200px;
+  /* margin-bottom: 150px; */
+  /* height: 100%; */
+  background:#a8c4d6;
+  /* margin: 50px 0; */
+}
+.meal {
+  max-width: 1600px;
+  width: 100%;
+  margin: auto;
+}
+.all_house {
+  max-width: 1920px;
+  width: 100%;
+  text-indent: -9999px;
+  /* transition:all 0.5s ease-in; */
+  margin: auto;
+  text-align: center;
+  background: url('../img_mealkit/전국맛집지도_배너.png')no-repeat center center;
+}
+
+.all_house_mb {
+  display: none;
+}
+.all_house_mb img {
+  width: 100%;
+}
+
+/* 보러가기 + 더보기 버튼 */
+.banner_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:200px;
+}
+.banner_btn a {
+  display: inline-block;  
+  border: 2px solid #BF132B;
+  width: 270px;
+  height: 60px;
+  border-radius: 30px;
+  padding: 18px 32px;
+  line-height: 20px;
+  text-align: center;
+  font-weight: 600;
+  color: #BF132B;
+  transition: 0.3s ease-in;
+  /* padding: 15px 30px; */
+
+}
+.banner_btn a:hover {
+  background: #BF132B;
+  color: #fff;
+}
+/***********/ 
+
+.section_2 {
+  width:100%;
+  margin: 30px 0;
+}
+.section_3 {
+  width: 100%;
+  margin:30px 0;
+}
+.eve_ban {
+  width: 30%;
+  display: inline-block;
+}
+.eve_ban_mb {
+  display: none;
+}
+.eve_ban img {
+  width: 100%;
+  height: 100%;
+}
+.eve_ban_mb img {
+  width: 100%;
+  height: 100%;
+
+}
+.slider {
+  float: right;
+  width: 70%;
+  height: 150px;
+  /* position: relative; */
+}
+.slider .wrapper {
+  width:90%;
+  height:480px;
+  display:flex;
+  margin:0 auto;
+}
+.slider .wrapper .post{
+  width:400px;
+  margin:0 auto;
+}
+.post_setmenu {
+  /* width:330px; */
+  /* height:450px; */
+  padding:0 25px;
+  cursor: pointer;
+  margin-top:20px;
+  box-sizing:border-box;
+}
+.set_img {
+  width: 100%;
+}
+.set_img img {
+  width:100%;
+  border-radius: 50%;
+}
+.set_name {
+  font-size: 25px;
+  color: #000;
+  margin: 40px 0 25px 0;
+  text-align: center;
+  font-weight: bold;
+}
+.h_price {
+  /* border: 1px solid black; */
+  margin-top: 15px;
+  line-height: 35px;
+}
+.h_price p {
+  font-size: 25px;
+  text-align: center;
+  font-weight: 500;
+}
+.w_price {
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+  text-decoration: line-through;
+}
+
+.section_4 {
+  width: 100%;
+  margin: 90px 0 200px 0;
+}
+.menuWrap {
+  max-width: 1600px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.allMenu {
+  width:22%;
+  margin-bottom: 20px;
+  transition: 0.5s;
+  text-align: center;
+}
+.allMenu img {
+  width: 80%;
+  transition: 0.5s;
+}
+.allMenu:hover {
+  background: rgba(0,0,0,0.2);
+
+}
+.allMenu img:hover {
+  transform: scale(1.2);
+}
+.menuName {
+  /* border: 1px solid red; */
+  font-size: 30px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+@media(max-width:1500px){
+  .slider .wrapper {
+    height: auto;
+  }
+}
+@media(max-width:1400px){
+  .menuWrap {
+    max-width: 1400px;
+    width: 100%;
+  }
+  .section_1 {
+    margin-bottom: 10px;
+  }
+  .slider .wrapper .post {
+    height: 430px;
+  }
+}
+@media(max-width:1300px){
+  .slider .wrapper .post {
+    height: auto;
+  }
+  .post_setmenu {
+    max-height: 400px;
+  }
+}
+@media(max-width:1200px){
+  .post_setmenu {
+    height: 375px;
+  }
+  .set_name {
+    font-size: 20px;
+    margin: 30px 0 20px 0;
+  }
+
+  .h_price p {
+    font-size: 20px;
+  }
+}
+@media(max-width:1100px){
+  .post_setmenu {
+    height: 340px;
+  }
+  .set_name {
+    font-size: 18px;
+  }
+  .h_price p {
+    font-size: 18px;
+  }
+  .w_price {
+    font-size: 16px;
+  }
+  .section_4 {
+    margin: 100px 0 100px 0;
+  }
+  .menuName {
+    font-size: 20px;
+  }
+}
+@media(max-width:1000px){
+  .post_setmenu {
+    max-height: 300px;
+  }
+  .set_name {
+    font-size: 16px;
+  }
+}
+@media(max-width:900px){
+  .post_setmenu {
+    height: 270px;
+  }
+  .set_name {
+    font-size: 14px;
+    margin: 25px 0 15px 0;
+  }
+  .h_price p {
+    font-size: 15px;
+  }
+  .w_price {
+    font-size: 12px;
+  }
+}
+@media(max-width:830px){
+  .meal {
+    width: 830px;
+    margin: auto;
+  }
+  .all_house {
+    display: none;
+  }
+  .all_house_mb {
+    display: block;
+  }
+  .slider {
+    width: 62%;
+  }
+  .eve_ban {
+    width: 38%;
+    display: inline-block;
+  }
+  .slider .wrapper {
+    width:95%;
+    display:flex;
+    margin:0 auto;
+  }
+  .slider .wrapper .post{
+    height:0;
+    margin-bottom: 125%;
+    padding:0 30px;  
+  }
+  .post_setmenu {
+    width:180px;
+    height:250px;
+    cursor: pointer;
+    margin-top:30px;
+    padding: 0;
+  }
+  .set_img {
+    width: 85%;
+  }
+
+  .set_name {
+    font-size: 14px;
+    margin: 20px 0 15px 0;
+  }
+  .h_price {
+    margin-top: 15px;
+    line-height: 20px;
+  }
+  .h_price p {
+    font-size: 15px;
+  }
+  .w_price {
+    font-size: 12px;
+  }
+  .section_3 {
+    margin-top: 40px;
+  }
+  .section_4 {
+    margin: 50px 0 50px 0;
+  }
+  .menuWrap {
+    max-width: 830px;
+    width: 100%;
+  }
+  .allMenu {
+    width: 25%;
+  }
+  .menuName {
+    font-size: 16px;
+  }
+}
+@media(max-width:768px){
+  .name {
+    display: inline-block;
+    position: absolute;
+    top:220px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .name h1 {
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .section_1 {
+    margin-top: 120px;
+    margin-bottom: 50px;
+  }
+  .banner_btn {
+    height: 100px;
+  }
+  .banner_btn a {
+    width: 200px;
+  }
+  .meal {
+    max-width: 830px;
+    width: 100%;
+    margin:30px 0;
+  }
+  .all_house {
+    display: none;
+  }
+  .all_house_mb {
+    display: block;
+  }
+  .post {
+    /* display: inline-block; */
+    width:100%;
+  }
+  .post_setmenu {
+    width: auto;
+  }
+
+  .set_name {
+    font-size: 14px;
+    margin: 20px 0 15px 0;
+
+  }
+  .h_price p {
+    font-size: 15px;
+
+  }
+  .w_price {
+    font-size: 12px;
+  }
+
+}
+@media(max-width:650px){
+  .name h1 {
+    font-size: 25px;
+  }
+  .banner_btn a {
+    width: 180px;
+    height: 50px;
+    line-height: 10px;
+    font-weight: 500;
+    border: 1px solid #BF132B;
+  }
+  .post_setmenu {
+    margin-top: 15px;
+  }
+  .section_4{
+    margin: 60px 0 50px 0;
+  }
+}
+@media(max-width:550px){
+  .banner_btn {
+    height: 50px;
+  }
+  .banner_btn a {
+    width: 136px;
+    height: 40px;
+    line-height: 4px;
+    font-size: 12px;
+  }
+  .set_name{
+    margin: 20px 0 10px 0;
+    font-size: 12px;
+  }
+  .h_price p {
+    font-size: 11px;
+  }
+  .w_price {
+    font-size: 9px;
+  }
+  .menuName {
+    font-size: 14px;
+  }
+}
+@media(max-width:420px){
+  .meal {
+    height: 0;
+    padding-bottom: 135%;
+    box-sizing: border-box;
+  }
+  .eve_ban {
+    display: none;
+  }
+  .eve_ban_mb {
+    display: block;
+  }
+  .slider {
+    float: none;
+    width: 100%;
+    height: 280px;
+    box-sizing: border-box;
+    margin-top: 15px;
+  }
+  .eve_ban {
+    width: 100%;
+  }
+
+  .slider .wrapper {
+    border: 1px solid #fff;
+    height:100%;
+    /* margin: auto; */
+  }
+  .post {
+    margin-bottom: 0;
+  }
+  .post_setmenu {
+    background: red;
+    width: 60%;
+    height: 100%;
+    margin: auto;
+  }
+  .section_3{
+    margin-top:80px 0;
+  }
+}
+@media(max-width:375px){
+  .section_1 {
+    margin-top: 60px;
+  }
+}
+@media(max-width:350px){
+  .meal {
+    max-width: 420px;
+    width: 100%;
+
+  }
+
+  .name h1 {
+    font-size: 20px;
+  }
+  .post_setmenu {
+    width: 60%;
+    margin: auto;
+  }
+  .slider {
+    height: 250px;
+    
+  }
+  .menuName {
+    font-size: 12px;
+  }
+}

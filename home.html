@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- <link rel="icon" href="파비콘로고넣는곳" type="image/x-icon">  -->
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="js/swiper.min.js"></script>
+    <title>팝마트_홈</title>
+</head>
+<body>
+    <div class="wrapper main_site">
+        <div class="homeMain_site">
+            <header>
+                <div class="top">
+                    <h1><a href=""><img src="img/login/logo.png" alt="로고"></a></h1>
+                    <ul>
+                        <li><span>menu</span></li>
+                        <li><a href="search.html">검색</a></li>
+                        <li><a href="">장바구니</a></li>
+                    </ul>
+                </div><!--top : END-->
+                <div class="botton">
+                    <div class="swiper gnbb">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide on"><a href="">투데이홈</a></li>
+                            <li class="swiper-slide"><a href="">베스트샵</a></li>
+                            <li class="swiper-slide"><a href="">타임딜24</a></li>
+                            <li class="swiper-slide"><a href="">구매후기</a></li>
+                            <li class="swiper-slide"><a href="">매장안내</a></li>
+                            <li class="swiper-slide"><a href="">고객센터</a></li>
+                        </ul>
+                    </div>
+                    <script>
+                        // 스와이퍼 초기화
+                        var swiper = new Swiper('.swiper.gnbb', {
+                            // 스와이퍼 옵션 설정
+                            slidesPerView: 'auto',
+                            spaceBetween:0, // 슬라이드 간의 간격 (px)
+                        });
+                    </script>
+                </div><!--botton : END-->
+            </header>
+            <div class="visual">
+                <div class="swiper visual_swiper">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide"><img src="img/visual/visual01.jpg" alt="메인광고이미지1"></li>
+                        <li class="swiper-slide"><img src="img/visual/visual02.PNG" alt="메인광고이미지2"></li>
+                        <li class="swiper-slide"><img src="img/visual/visual03.PNG" alt="메인광고이미지3"></li>
+                    </ul>
+                    <div class="swiper-pagination"></div> <!-- 페이지 번호를 표시할 요소 -->
+                </div>
+                <script>
+                    // 스와이퍼 초기화
+                    var swiper = new Swiper('.swiper.visual_swiper', {
+                        // 스와이퍼 옵션 설정
+                        slidesPerView: 1, // 보여줄 슬라이드 개수
+                        spaceBetween:0, // 슬라이드 간의 간격 (px)
+                        pagination: {
+                                el: '.swiper-pagination', // 페이지 번호를 표시할 요소 지정
+                                type: 'fraction', // 페이지 번호 타입 설정 (fraction: 현재 페이지 번호 / 전체 페이지 개수)
+                            },
+                    });
+                </script>
+            </div><!--visual : END-->
+            <div class="main">
+                <div class="swiper category">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
+                            <a href="#">
+                                <p><img src="img/category/DIMOO.avif" alt=""></p>
+                                <span>DIMOO</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="#">
+                                <p><img src="img/category/MOLLY.avif" alt=""></p>
+                                <span>MOLLY</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="#">
+                                <p><img src="img/category/PUNCKY.avif" alt=""></p>
+                                <span>PUNCKY</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="#">
+                                <p><img src="img/category/skullpanda.avif" alt=""></p>
+                                <span>PANDA</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="#">
+                                <p><img src="img/category/LABUBU.avif" alt=""></p>
+                                <span>LABUBU</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="#">
+                                <p><img src="img/category/disney.webp" alt=""></p>
+                                <span>DISNEY</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="#">
+                                <p><img src="img/category/special.webp" alt=""></p>
+                                <span>SPECIAL</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div><!--swiper category : END-->
+                    <script>
+                        // 스와이퍼 초기화
+                        let category = new Swiper('.swiper.category', {
+                            // 스와이퍼 옵션 설정
+                            slidesPerView: 'auto',
+                            spaceBetween:10, // 슬라이드 간의 간격 (px)
+                        });
+                    </script>
+                <div class="recommendation">
+                    <h3><p class="nick">당신</p>님의 취향 아이템<span>취향에 맞게 추천해줘요!</span></h3>
+                    <ul class="con1 dataJson">
+                        <!-- <li>
+                            <a href="#">
+                                <img src="img/recommendation/recommendation01.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>몰리 해변 뮤직 페스티벌 BJD</dt>
+                                    <dd>Molly Beach Music Festival BJD </dd>
+                                    <dd>180,000원</dd>
+                                </dl>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/recommendation/recommendation02.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>몰리 해변 뮤직 페스티벌 BJD</dt>
+                                    <dd>Molly Beach Music Festival BJD </dd>
+                                    <dd>208,000원</dd>
+                                </dl>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/recommendation/recommendation03.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>몰리 해변 뮤직 페스티벌 BJD</dt>
+                                    <dd>Molly Beach Music Festival BJD </dd>
+                                    <dd>162,000원</dd>
+                                </dl>
+                            </a>
+                        </li> -->
+                    </ul><!--con1 : END-->
+                    <script>
+                        //값 가져오는 스크립트
+                        const 회원정보 = JSON.parse(localStorage.getItem('회원정보'));
+                        const nickname = 회원정보[0]['닉네임_nick'];
+
+                        const pElement = document.querySelector('.nick');
+                        pElement.textContent = nickname;
+
+                        if (nickname) {
+                            pElement.textContent = nickname;
+                        }
+                        const localStorageValue = localStorage.getItem('selectedImage');
+                        const parsedValue = JSON.parse(localStorageValue);
+                        const idValue = parsedValue.id;
+
+                        console.log(idValue); // 출력: 3
+
+                        fetch('data.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            // JSON 데이터 처리
+                            const filteredRecommendations = data.recommendation.filter(itemEvent => itemEvent.id === idValue);
+
+                            const recommendationList = document.querySelector('.con1.dataJson');
+                            // console.log(filteredRecommendations);
+
+                            // 필터링된 추천 아이템 데이터를 사용하여 HTML 요소 생성 및 데이터 적용
+                                filteredRecommendations.forEach(item => {
+                                    const html = `
+                                        <li>
+                                            <a href="#">
+                                                <img src="${item.img}" alt="추천아이템">
+                                                <dl>
+                                                <dt>${item.title}</dt>
+                                                <dd>${item.text}</dd>
+                                                <dd>${item.price}</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                    `;
+
+                                    recommendationList.innerHTML += html;
+                                });
+                        })
+                        .catch(error => {
+                            // 에러 처리
+                            console.error('Error:', error);
+                        });
+
+                    </script>
+                    <ul class="con2 starListWar">
+                        <li>
+                            <a href="#">
+                                <img src="img/recommendation/recommendation04.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>몰리 해변 뮤직 페스티벌 BJD</dt>
+                                    <dd>Molly Beach Music Festival BJD </dd>
+                                    <dd>208,000원</dd>
+                                </dl>
+                            </a>
+                            <p class="t_star">찜버튼</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/recommendation/recommendation05.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>피노젤리 테이스트 퀴즈 시리즈</dt>
+                                    <dd>PINO JELLY Taste ＆ Personality Quiz </dd>
+                                    <dd>140,000원</dd>
+                                </dl>
+                            </a>
+                            <p class="t_star">찜버튼</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/recommendation/recommendation06.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>지거 큐트 시리즈 (랜덤)</dt>
+                                    <dd>Zsiga We re So Cute</dd>
+                                    <dd>210,000원</dd>
+                                </dl>
+                            </a>
+                            <p class="t_star">찜버튼</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/recommendation/recommendation07.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>메가 알파 스컬판다 X 니나가와 미카 1000%</dt>
+                                    <dd>MEGA α SKULLPANDA 1000% MIKA NINAGAWA </dd>
+                                    <dd>180,000원</dd>
+                                </dl>
+                            </a>
+                            <p class="t_star">찜버튼</p>
+                        </li>
+                    </ul>
+                </div><!--recommendation : END-->
+
+                <div class="collection">
+                    <h3>POP MART가 제안하는 POP 컬렉션 <span>NEW</span></h3>
+                    <div class="swiper collection_swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <ul class="topcontent">
+                                        <li>
+                                            <a href="">
+                                                <img src="img/pop03.jpg" />
+                                                <dl>
+                                                    <dt>칩 앤 데일 데일리 시리즈 (랜덤)</dt>
+                                                    <dd>DISNEY Chip 'n' Dale Daily </dd>
+                                                    <dd>180,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <img src="img/pop04.jpg" />
+                                                <dl>
+                                                    <dt>메가 스페이스 몰리 X 뚱이 1000%</dt>
+                                                    <dd>MEGA SPACE MOLLY 1000% Patrick Star </dd>
+                                                    <dd>230,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <img src="img/pop01.jpg" />
+                                                <dl>
+                                                    <dt>반지의 제왕 클래식 시리즈 (랜덤)</dt>
+                                                    <dd>The Lord of the Rings Classic </dd>
+                                                    <dd>160,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide bottomContent">
+                                    <ul class="topcontent">
+                                        <li>
+                                            <a href="">
+                                                <img src="img/random/DIMOO.jpg" />
+                                                <dl>
+                                                    <dt>마이리틀포니 프리티 미 업 시리즈 (랜덤)</dt>
+                                                    <dd>My Little Pony Pretty Me Up Series </dd>
+                                                    <dd>180,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <img src="img/random/DISNEY.jpg" />
+                                                <dl>
+                                                    <dt>인스팅토이 렛츠 플레이 Big</dt>
+                                                    <dd>INSTINCTOY Muckey Lets Play </dd>
+                                                    <dd>230,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <img src="img/random/OTHERS.jpg" />
+                                                <dl>
+                                                    <dt>009 스페이스 워커 우주 콘서트 시리즈 (박스)</dt>
+                                                    <dd>009 Space Walker Space Concert </dd>
+                                                    <dd>160,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide">
+                                    <ul class="topcontent">
+                                        <li>
+                                            <a href="">
+                                                <img src="img/random/PUCKY.jpg" />
+                                                <dl>
+                                                    <dt>타푸 우주여행 가이드 시리즈 (랜덤)</dt>
+                                                    <dd>TAPOO Space Travel</dd>
+                                                    <dd>180,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <img src="img/cute01.jpg" />
+                                                <dl>
+                                                    <dt>프렌즈 베스트 메모리 시리즈 (박스)</dt>
+                                                    <dd>Friends Best Memories</dd>
+                                                    <dd>230,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <img src="img/cute02.jpg" />
+                                                <dl>
+                                                    <dt>미니코 마이 리틀 프린세스 시리즈 (랜덤)</dt>
+                                                    <dd>Minico My Little Princess </dd>
+                                                    <dd>160,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide bottomContent">
+                                    <ul class="topcontent">
+                                        <li>
+                                            <a href="">
+                                                <img src="img/recommendation/recommendation04.jpg" />
+                                                <dl>
+                                                    <dt>미니코 레빗 메모리 Big</dt>
+                                                    <dd>MINICO Rabbit memories</dd>
+                                                    <dd>180,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <img src="img/recommendation/recommendation05.jpg" />
+                                                <dl>
+                                                    <dt>버니 잉어 연 Big</dt>
+                                                    <dd>Bunny Flying Carp Flags</dd>
+                                                    <dd>230,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <img src="img/recommendation/recommendation03.jpg" />
+                                                <dl>
+                                                    <dt>디즈니 프린세스 주먹왕 랄프2 시리즈 (랜덤)</dt>
+                                                    <dd>Disney Ralph Breaks The Internet Princess</dd>
+                                                    <dd>160,000원</dd>
+                                                </dl>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div><!--swiper-wrapper : END-->
+
+                    </div><!--collection_swiper : End-->
+                    <div class="swiper-scrollbar"></div>
+
+                    <script>
+                        var collection_swiper = new Swiper(".collection_swiper", {
+                            slidesPerView: 'auto',
+                            centeredSlides: false,
+                            scrollbar: {
+                                el: ".swiper-scrollbar",
+                            },
+                            spaceBetween: 0, // 슬라이드 간의 간격 설정
+                            freeMode: true, // 페이지 단위로 넘어가지 않고 자유롭게 스와이프
+
+                            });
+                    </script>
+                </div><!--collection : END-->
+
+
+                <div class="recommendation mart">
+                    <h3>POP MART가 추천하는 아이템</h3>
+                    <div class="swiper mart">
+                        <ul class="con1 swiper-wrapper starListWar">
+                            <li class="swiper-slide">
+                                <a href="#">
+                                    <img src="img/random/PUCKY.jpg" alt="추천아이템1">
+                                    <dl>
+                                        <dt>팝마트 로맨틱 프로포즈 시리즈 (랜덤)</dt>
+                                        <dd>POP MART Romantic Ring Box</dd>
+                                        <dd>208,000원</dd>
+                                    </dl>
+                                </a>
+                                <p class="t_star">찜버튼</p>
+                            </li>
+                            <li class="swiper-slide">
+                                <a href="#">
+                                    <img src="img/random/OTHERS.jpg" alt="추천아이템1">
+                                    <dl>
+                                        <dt>케어베어스 언락 더 매직 (박스)</dt>
+                                        <dd>Care Bears Unlock the Magic</dd>
+                                        <dd>140,000원</dd>
+                                    </dl>
+                                </a>
+                                <p class="t_star">찜버튼</p>
+                            </li>
+                            <li class="swiper-slide">
+                                <a href="#">
+                                    <img src="img/random/DISNEY.jpg" alt="추천아이템1">
+                                    <dl>
+                                        <dt>팝마트 로맨틱 프로포즈 시리즈 (박스)</dt>
+                                        <dd>POP MART Romantic Ring Box</dd>
+                                        <dd>210,000원</dd>
+                                    </dl>
+                                </a>
+                                <p class="t_star">찜버튼</p>
+                            </li>
+                            <li class="swiper-slide">
+                                <a href="#">
+                                    <img src="img/random/DIMOO.jpg" alt="추천아이템1">
+                                    <dl>
+                                        <dt>스컬판다 온도 시리즈 (랜덤)</dt>
+                                        <dd>Skullpanda WARMTH</dd>
+                                        <dd>180,000원</dd>
+                                    </dl>
+                                </a>
+                                <p class="t_star">찜버튼</p>
+                            </li>
+                        </ul><!--con1 : END-->
+                    </div><!--swiper : END-->
+                    <script>
+                        // 스와이퍼 초기화
+                        let mart = new Swiper('.swiper.mart', {
+                            // 스와이퍼 옵션 설정
+                            slidesPerView: 3,
+                            spaceBetween:0, // 슬라이드 간의 간격 (px)
+                        });
+                        
+                    </script>
+                    <ul class="con2 starListWar">
+                        <li>
+                            <a href="#">
+                                <img src="img/fantasy05.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>스컬판다 나이트메어 애니멀 시리즈 (랜덤)</dt>
+                                    <dd>Skullpanda The Mare of Animals </dd>
+                                    <dd>208,000원</dd>
+                                </dl>
+                            </a>
+                            <p class="t_star">찜버튼</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/pop02.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>메가 알파 스컬판다 빛과 어둠 1000%</dt>
+                                    <dd>MEGA α SKULLPANDA 1000% BETWEEN LIGHT AND DARK</dd>
+                                    <dd>140,000원</dd>
+                                </dl>
+                            </a>
+                            <p class="t_star">찜버튼</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/recommendation/recommendation06.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>팝마트 셋, 둘, 하나! 해피 뉴 이어 시리즈 (박스)</dt>
+                                    <dd>POP MART Three,Two,One!Happy Chinese New Year</dd>
+                                    <dd>210,000원</dd>
+                                </dl>
+                            </a>
+                            <p class="t_star">찜버튼</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/recommendation/recommendation07.jpg" alt="추천아이템1">
+                                <dl>
+                                    <dt>산리오 따뜻한 수면 시리즈</dt>
+                                    <dd>Sanrio characters Fall Asleep</dd>
+                                    <dd>180,000원</dd>
+                                </dl>
+                            </a>
+                            <p class="t_star">찜버튼</p>
+                        </li>
+                    </ul>
+                </div><!--recommendation : END-->
+
+                <footer>
+                    <div class="footer">
+                        <h3><img src="img/login/logo.png" alt="푸터로고"></h3>
+                        <ul>
+                            <li><a href="">개인정보 처리방침</a></li>
+                            <li><a href="">회사소개</a></li>
+                            <li><a href="">서비스 이용약관</a></li>
+                            <li><a href="">사업자 정보 확인</a></li>
+                            <li><a href="">상품c/s</a></li>
+                        </ul>
+                        <p class="img"><img src="img/ISMS.png" alt="정보보호 관리체계인증 isms"></p>
+                        <dl>
+                            <dt>정보보호 관리체계인증 ISMS</dt>
+                            <dd>인증범위:야놀자 온라인 서비스 운영</dd>
+                            <dd>유효기간:2023.06.01 ~ 2024.07.06</dd>
+                        </dl>
+                    </div><!--footer : END-->
+                </footer>
+
+            </div><!--main : END-->
+            <div class="bottomMenu">
+                <ul>
+                    <li class="active">
+                        <a href="">
+                            <img src="img/home.png" alt="홈"  class="on">
+                            <img src="img/homeOn2.png" alt="홈"  class="off">
+                            <p>홈</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./ranking.html">
+                            <img src="img/ranking.png" alt="랭킹" class="on">
+                            <img src="img/rankingH.png" alt="랭킹" class="off">
+                            <p>랭킹</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./wishList.html">
+                            <img src="img/starB.png" alt="찜" class="on">
+                            <img src="img/starH.png" alt="찜" class="off">
+                            <p>찜</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/my.png" alt="" class="on">
+                            <img src="img/myH.png" alt="" class="off">
+                            <p>마이페이지</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!--homeMain_site : END-->
+    </div><!--wrapper : END-->
+    <script src="js/signup.js"></script>
+    <script src="js/common.js"></script>
+
+    <script>
+        const liElements = document.querySelectorAll('.starListWar li');
+        let starList = [];
+
+        // 로컬 스토리지에서 저장된 데이터 가져오기
+        const storedData = localStorage.getItem('starList');
+        if (storedData) {
+            starList = JSON.parse(storedData);
+        }
+
+        liElements.forEach(function(li) {
+            const imgSrc = li.querySelector('img').getAttribute('src');
+            const title = li.querySelector('dt').textContent;
+            const description = li.querySelectorAll('dd')[0].textContent;
+            const price = li.querySelectorAll('dd')[1].textContent;
+
+            const item = {
+                imgSrc: imgSrc,
+                title: title,
+                description: description,
+                price: price
+            };
+
+            const toggleStar = li.querySelector('.t_star');
+            toggleStar.addEventListener('click', function() {
+            if (toggleStar.classList.contains('on')) {
+                toggleStar.classList.remove('on');
+            // 배열에서 아이템 제거
+                starList = starList.filter((storedItem) => storedItem.title !== title);
+            } else if (toggleStar.classList.contains('on_live')) {
+                toggleStar.classList.remove('on_live');
+                toggleStar.classList.add('on');
+            // 배열에 아이템 추가
+                starList.push(item);
+            } else {
+                toggleStar.classList.add('on_live');
+                setTimeout(function() {
+                    toggleStar.classList.remove('on_live');
+                    toggleStar.classList.add('on');
+                    // 배열에 아이템 추가
+                    starList.push(item);
+                }, 350);
+            }
+
+            // 변경된 배열을 로컬 스토리지에 저장
+            localStorage.setItem('starList', JSON.stringify(starList));
+        });
+
+        // 초기 로딩 시 로컬 스토리지 값을 확인하여 클래스 설정
+            if (starList.some((storedItem) => storedItem.title === title)) {
+                toggleStar.classList.add('on');
+            }
+        });
+
+        console.log(starList);
+
+
+
+        // const toggleStars = document.querySelectorAll('.t_star');
+
+        // toggleStars.forEach(function(toggleStar) {
+        //     toggleStar.addEventListener('click', function() {
+        //         if (toggleStar.classList.contains('on')) {
+        //             toggleStar.classList.remove('on');
+        //         } else if (toggleStar.classList.contains('on_live')) {
+        //             toggleStar.classList.remove('on_live');
+        //             toggleStar.classList.add('on');
+        //         } else {
+        //             toggleStar.classList.add('on_live');
+        //             setTimeout(function() {
+        //                 toggleStar.classList.remove('on_live');
+        //                 toggleStar.classList.add('on');
+        //             }, 350);
+        //         }
+        //     });
+        // });
+
+// li 요소 클릭 이벤트 등록
+const starListWarLi = document.querySelectorAll('.starListWar li a');
+starListWarLi.forEach((li, index) => {
+  li.addEventListener('click', function(event) {
+    // 로컬 스토리지에서 랭킹 데이터 가져오기
+    let rankingData = JSON.parse(localStorage.getItem('rankingData')) || [];
+
+    const imgSrc = li.querySelector('img').src;
+    const title = li.querySelector('dt').textContent;
+    const description = li.querySelector('dd:first-of-type').textContent;
+    const price = li.querySelector('dd:last-of-type').textContent;
+
+    // 해당 아이템이 이미 랭킹에 있는지 확인
+    const existingData = rankingData.find(data => data.image === imgSrc);
+
+    if (existingData) {
+      // 이미 랭킹에 있는 경우 클릭 횟수 증가
+      existingData.clickCount++;
+    } else {
+      // 랭킹에 없는 경우 새로운 데이터 추가
+      const itemData = {
+        image: imgSrc,
+        title: title,
+        description: description,
+        price: price,
+        clickCount: 1
+      };
+      rankingData.push(itemData);
+    }
+
+    // 클릭 횟수를 기준으로 데이터 정렬
+    rankingData.sort((a, b) => b.clickCount - a.clickCount);
+
+    // 순위 정보 업데이트
+    rankingData.forEach((data, index) => {
+      data.ranking = index + 1;
+    });
+
+    // 로컬 스토리지에 업데이트된 데이터 저장
+    localStorage.setItem('rankingData', JSON.stringify(rankingData));
+
+    // 다른 페이지로 이동 (현재 페이지에서 다른 사이트로 이동하는 방법을 사용하세요)
+    window.location.href = li.href;
+  });
+});
+
+    </script>
+</body>
+</html>

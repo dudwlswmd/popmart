@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- <link rel="icon" href="파비콘로고넣는곳" type="image/x-icon">  -->
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="js/swiper.min.js"></script>
+    <title>팝마트_검색기능</title>
+</head>
+<body>
+    <div class="wrapper main_site">
+        <div class="homeMain_site sub search">
+            <div class="main">
+                <div class="flex">
+                  <button id="backButton" class="prevBtn">이전</button>
+                  <input type="text" id="searchInput" placeholder="POP! 찾아주세요!">
+                  <button id="searchButton">검색</button>
+                </div>
+                <div class="key_ward">
+                  <ul>
+                    <li>키워드</li>
+                    <li>디무</li>
+                    <li>몰리</li>
+                    <li>디즈니</li>
+                    <li>스컬판다</li>
+                    <li>푸키</li>
+                    <li>마블</li>
+                    <li>스페셜</li>
+                  </ul>
+                </div><!--key_ward : END-->
+                <div id="resultsContainer">
+                    <ul>
+                      <!--검색한 리스트 들어가는곳-->
+                    </ul>
+                </div><!--resultsContainer : END-->
+            </div><!--main : END-->
+        </div><!--homeMain_site : END-->
+    </div><!--wrapper : END-->
+    <!-- <script src="js/signup.js"></script> -->
+    <script  src="js/common.js"></script>
+    <script>
+// 이전 페이지로 돌아가기
+function goBackWithDelay() {
+  const targetElement = document.querySelector('.homeMain_site.sub.search');
+
+  if (targetElement) {
+    targetElement.classList.add('active');
+    setTimeout(function() {
+      window.history.back(); // 0.4초 뒤에 뒤로 가기 실행
+    }, 200);
+  }
+}
+
+// "뒤로 가기" 버튼 클릭 이벤트 등록
+const backButton = document.getElementById('backButton');
+backButton.addEventListener('click', goBackWithDelay);
+
+
+
+      // HTML 요소 선택
+      const searchInput = document.getElementById('searchInput'); // 검색어 입력 필드
+      const searchButton = document.getElementById('searchButton'); // 검색 버튼
+      const resultsContainer = document.getElementById('resultsContainer'); // 결과를 표시할 컨테이너
+      
+      // 이벤트 리스너 등록
+      searchButton.addEventListener('click', searchItems); // 검색 버튼 클릭 이벤트
+      searchInput.addEventListener('keydown', function(event) { // 검색어 입력 필드에서 엔터 키 입력 이벤트
+        if (event.key === 'Enter') {
+          searchItems(); // 검색 실행
+        }
+      });
+      
+      // 검색 기능 구현
+      function searchItems() {
+        const searchTerm = searchInput.value.toLowerCase(); // 검색어를 소문자로 변환
+        fetch('data.json') // 데이터 파일 가져오기
+          .then(response => response.json()) // JSON 형식으로 변환
+          .then(jsonData => {
+            const searchResults = jsonData.search.filter(item => {
+              return item.title.toLowerCase().includes(searchTerm); // 검색어를 포함하는 항목 필터링 (title 속성 사용)
+            });
+      
+            displayResults(searchResults); // 결과 표시
+          })
+          .catch(error => {
+            console.error('데이터를 가져오는 중 오류가 발생했습니다.', error);
+          });
+      }
+      
+      // 검색 결과를 표시하는 함수
+      function displayResults(results) {
+        resultsContainer.innerHTML = '';
+      
+        if (results.length === 0) {
+          resultsContainer.innerHTML = '<p>검색 결과가 없습니다.</p>'; // 검색 결과가 없을 경우 메시지 표시
+          return;
+        }
+      
+        let html = '';
+        results.forEach((item, index) => {
+          html += `
+            <li class="fade-in" style="animation-delay: ${index * 100}ms">
+              <p class="img"><img src="${item.img}" alt=""></p>
+              <dl>
+                <dt>${item.title}</dt>
+                <dd>${item.text}</dd>
+                <dd>${item.price}</dd>
+              </dl>
+            </li>
+          `;
+        });
+      
+        const ulElement = document.createElement('ul');
+        ulElement.innerHTML = html;
+        resultsContainer.appendChild(ulElement);
+      }
+      
+      // 애니메이션 효과 활성화
+      setTimeout(() => {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(element => {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        });
+      }, 100);
+      
+      // HTML 요소 선택
+
+const keywordList = document.querySelectorAll('.key_ward li'); // 키워드 리스트
+
+// 이벤트 리스너 등록
+searchButton.addEventListener('click', searchItems); // 검색 버튼 클릭 이벤트
+searchInput.addEventListener('keydown', function(event) { // 검색어 입력 필드에서 엔터 키 입력 이벤트
+  if (event.key === 'Enter') {
+    searchItems(); // 검색 실행
+  }
+});
+
+keywordList.forEach(keyword => {
+  keyword.addEventListener('click', function() {
+    const searchTerm = keyword.textContent;
+    searchInput.value = searchTerm; // 검색어 입력 필드에 키워드 설정
+    searchItems(); // 검색 실행
+  });
+});
+
+
+
+
+
+                        </script>
+</body>
+</html>

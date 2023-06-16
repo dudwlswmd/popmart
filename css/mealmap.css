@@ -1,0 +1,229 @@
+@charset  "UTF-8" ;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+main {
+  /* text-align: center; */
+  width: 100%;
+  margin: auto;
+
+}
+.map_banner {
+  /* width: 100%; */
+  width: 100%;
+  background: #8E8EF4;
+}
+.pc_map {
+  max-width: 1920px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  background: url('../img_mealmap/전국맛집지도_배너.png')no-repeat center center / contain;
+}
+.pc_map img {
+  width: 50%;
+}
+/* 모바일용 830px */
+.mo_map {
+  display: none;
+}
+.mo_map img{
+  width: 100%;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  position: relative;
+}
+.btn h1{
+  display: inline-block;  
+  position: absolute;
+  left: 10%;
+  /* border: 2px solid #BF132B; */
+  width: 200px;
+  height: 60px;
+  border-radius: 30px;
+  padding: 18px 32px;
+  line-height: 20px;
+  text-align: center;
+  font-weight: 600;
+  background: #BF132B;
+  color: #fff;
+  transition: 0.3s ease-in;
+}
+
+.banner_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100px;
+}
+.banner_btn a {
+  display: inline-block;  
+  border: 2px solid #BF132B;
+  width: 250px;
+  height: 60px;
+  border-radius: 30px;
+  padding: 18px 32px;
+  line-height: 20px;
+  text-align: center;
+  font-weight: 600;
+  color: #BF132B;
+  transition: 0.3s ease-in;
+  /* padding: 15px 30px; */
+
+}
+.banner_btn a:hover {
+  background: #BF132B;
+  color: #fff;
+}
+
+.section_1 {
+  width: 100%;
+  margin:0 auto;
+  /* text-align: center; */
+}
+
+.slider {
+  width: 80%;
+  margin: auto;
+  /* position: relative; */
+}
+.slider .wrapppp {
+  width:100%;
+  /* height:450px; */
+  display:flex;
+  margin:0 auto;
+}
+.slider .wrapppp .post{
+  width:400px;
+  margin:0 auto;
+}
+.post_setmenu {
+  /* width:330px; */
+  /* height:450px; */
+  /* padding:0 25px; */
+  cursor: pointer;
+  margin:15px;
+  box-sizing:border-box;
+  overflow: hidden;
+}
+.set_img {
+  /* width: 100%; */
+}
+.set_img img {
+  width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.set_name {
+  font-size: 20px;
+  color: #000;
+  margin: 40px 0 25px 0;
+  text-align: center;
+  font-weight: bold;
+}
+.h_price {
+  /* border: 1px solid black; */
+  margin-top: 15px;
+  line-height: 35px;
+}
+.h_price p {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+.w_price {
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+  text-decoration: line-through;
+}
+.em_box {
+  width: 100%;
+  height: 150px;
+}
+@media(max-width:1250px) {
+  .btn h1 {
+    width: 170px;
+    height: 55px;
+    line-height: 15px;
+    left: 11%;
+  }
+}
+@media(max-width:1050px){
+  .set_name {
+    font-size: 17px;
+    margin: 30px 0 20px 0;
+  }
+  .h_price p {
+    font-size: 16px;
+  }
+  .w_price {
+    font-size: 14px;
+  }
+}
+@media(max-width:900px){
+  .set_name {
+    font-size: 15px;
+  }
+  .h_price p {
+    font-size: 14px;
+  }
+  .w_price {
+    font-size: 13px;
+  }
+  .em_box {
+    height: 120px;
+  }
+}
+@media(max-width:830px){
+  .pc_map {
+    display: none;
+  }
+  .mo_map {
+    display: block;
+  }
+  .banner_btn a {
+    width: 185px;
+  }
+
+}
+@media(max-width:768px){
+  .banner_btn a {
+    width: 150px;
+    height: 50px;
+    line-height: 11px;
+    font-size: 14px;
+  }
+  .em_box {
+    height: 100px;
+  }
+
+}
+@media(max-width:640px){
+  .btn h1 {
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+@media(max-width:470px){
+  .slider {
+    width: 75%;
+  }
+  .em_box {
+    height: 70px;
+  }
+}
+@media(max-width:375px){
+  .btn h1 {
+    width: 155px;
+    height: 50px;
+    line-height: 10px;
+    font-size: 15px;
+  }
+  .em_box {
+    height: 50px;
+  }
+}
+
