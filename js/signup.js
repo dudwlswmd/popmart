@@ -171,7 +171,7 @@
                     localStorage.setItem('회원정보', JSON.stringify(usersArray));
             
                     // 성공적으로 가입되었다면 다음 페이지로 이동하도록 코드를 작성해야 합니다.
-                    window.location.href = 'https://dudwlswmd.github.io/popmart/';
+                    window.location.href = '../index.html';
                 }
             });
             

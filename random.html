@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
-    <!-- <link rel="icon" href="파비콘로고넣는곳" type="image/x-icon">  -->
+    <link rel="icon" href="img/login/logof.png" type="image/x-icon"> 
     <link rel="stylesheet" href="css/signup.css">
     <link rel="stylesheet" href="css/common.css">
-
     <link rel="stylesheet" href="css/reset.css">
     <!-- <link rel="stylesheet" href="css/swiper.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -307,7 +306,15 @@
                 <p><span class="on_off">on/off</span></p>
               </li>
             </ul>
-            <button class="start" onclick="window.location.href='home.html'">START !!</button>
+            <button class="start" onclick="handleButtonClick()">START !!</button>
+
+            <script>
+              function handleButtonClick() {
+                // home.html로 이동할 때 URL에 "?source=random"을 추가하여 정보를 전달합니다.
+                window.location.href = "home.html?source=random";
+              }
+            </script>
+            
           </div><!--favorites : END-->
       </div><!--image-container : END-->
 

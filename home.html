@@ -161,8 +161,8 @@
                     <h1><a href=""><img src="img/login/logo.png" alt="로고"></a></h1>
                     <ul>
                         <li><span>menu</span></li>
-                        <li><a href="search.html">검색</a></li>
-                        <li><a href="">장바구니</a></li>
+                        <li><a href="./search.html">검색</a></li>
+                        <li><a href="./shoppingBasket.html">장바구니</a></li>
                     </ul>
                 </div><!--top : END-->
                 <div class="botton">
@@ -171,9 +171,9 @@
                             <li class="swiper-slide on"><a href="">투데이홈</a></li>
                             <li class="swiper-slide"><a href="./best.html">베스트샵</a></li>
                             <li class="swiper-slide"><a href="./time.html">타임딜24</a></li>
-                            <li class="swiper-slide"><a href="">구매후기</a></li>
-                            <li class="swiper-slide"><a href="">매장안내</a></li>
-                            <li class="swiper-slide"><a href="">고객센터</a></li>
+                            <li class="swiper-slide"><a href="./review.html">구매후기</a></li>
+                            <li class="swiper-slide"><a href="./map.html">매장안내</a></li>
+                            <li class="swiper-slide"><a href="./event.html">이벤트</a></li>
                         </ul>
                     </div>
                     <script>
@@ -349,7 +349,7 @@
                     </script>
                     <ul class="con2 starListWar">
                         <li>
-                            <a href="#">
+                            <a href="./detaillPage.html">
                                 <img src="img/recommendation/recommendation04.jpg" alt="추천아이템1">
                                 <dl>
                                     <dt>몰리 해변 뮤직 페스티벌 BJD</dt>
@@ -360,7 +360,7 @@
                             <p class="t_star">찜버튼</p>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="./detaillPage.html">
                                 <img src="img/recommendation/recommendation05.jpg" alt="추천아이템1">
                                 <dl>
                                     <dt>피노젤리 테이스트 퀴즈 시리즈</dt>
@@ -371,7 +371,7 @@
                             <p class="t_star">찜버튼</p>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="./detaillPage.html">
                                 <img src="img/recommendation/recommendation06.jpg" alt="추천아이템1">
                                 <dl>
                                     <dt>지거 큐트 시리즈 (랜덤)</dt>
@@ -382,7 +382,7 @@
                             <p class="t_star">찜버튼</p>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="./detaillPage.html">
                                 <img src="img/recommendation/recommendation07.jpg" alt="추천아이템1">
                                 <dl>
                                     <dt>메가 알파 스컬판다 X 니나가와 미카 1000%</dt>
@@ -400,7 +400,7 @@
                     <div class="swiper collection_swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <ul class="topcontent">
+                                    <ul class="topcontent ">
                                         <li>
                                             <a href="">
                                                 <img src="img/pop03.jpg" />
@@ -617,7 +617,7 @@
                     </script>
                     <ul class="con2 starListWar">
                         <li>
-                            <a href="#">
+                            <a href="./detaillPage.html">
                                 <img src="img/fantasy05.jpg" alt="추천아이템1">
                                 <dl>
                                     <dt>스컬판다 나이트메어 애니멀 시리즈 (랜덤)</dt>
@@ -628,7 +628,7 @@
                             <p class="t_star">찜버튼</p>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="./detaillPage.html">
                                 <img src="img/pop02.jpg" alt="추천아이템1">
                                 <dl>
                                     <dt>메가 알파 스컬판다 빛과 어둠 1000%</dt>
@@ -639,7 +639,7 @@
                             <p class="t_star">찜버튼</p>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="./detaillPage.html">
                                 <img src="img/recommendation/recommendation06.jpg" alt="추천아이템1">
                                 <dl>
                                     <dt>팝마트 셋, 둘, 하나! 해피 뉴 이어 시리즈 (박스)</dt>
@@ -650,7 +650,7 @@
                             <p class="t_star">찜버튼</p>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="./detaillPage.html">
                                 <img src="img/recommendation/recommendation07.jpg" alt="추천아이템1">
                                 <dl>
                                     <dt>산리오 따뜻한 수면 시리즈</dt>
@@ -707,7 +707,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="./profile.html">
                             <img src="img/my.png" alt="" class="on">
                             <img src="img/myH.png" alt="" class="off">
                             <p>마이페이지</p>
@@ -721,60 +721,69 @@
     <script src="js/common.js"></script>
 
     <script>
-        const liElements = document.querySelectorAll('.starListWar li');
-        let starList = [];
 
-        // 로컬 스토리지에서 저장된 데이터 가져오기
-        const storedData = localStorage.getItem('starList');
-        if (storedData) {
-            starList = JSON.parse(storedData);
-        }
 
-        liElements.forEach(function(li) {
-            const imgSrc = li.querySelector('img').getAttribute('src');
-            const title = li.querySelector('dt').textContent;
-            const description = li.querySelectorAll('dd')[0].textContent;
-            const price = li.querySelectorAll('dd')[1].textContent;
 
-            const item = {
-                imgSrc: imgSrc,
-                title: title,
-                description: description,
-                price: price
-            };
 
-            const toggleStar = li.querySelector('.t_star');
-            toggleStar.addEventListener('click', function() {
-            if (toggleStar.classList.contains('on')) {
-                toggleStar.classList.remove('on');
-            // 배열에서 아이템 제거
-                starList = starList.filter((storedItem) => storedItem.title !== title);
-            } else if (toggleStar.classList.contains('on_live')) {
-                toggleStar.classList.remove('on_live');
-                toggleStar.classList.add('on');
-            // 배열에 아이템 추가
-                starList.push(item);
-            } else {
-                toggleStar.classList.add('on_live');
-                setTimeout(function() {
-                    toggleStar.classList.remove('on_live');
-                    toggleStar.classList.add('on');
-                    // 배열에 아이템 추가
-                    starList.push(item);
-                }, 350);
-            }
+const liElements = document.querySelectorAll('.starListWar li');
+let starList = [];
 
-            // 변경된 배열을 로컬 스토리지에 저장
-            localStorage.setItem('starList', JSON.stringify(starList));
-        });
+// 로컬 스토리지에서 저장된 데이터 가져오기
+const storedData = localStorage.getItem('starList');
+if (storedData) {
+  starList = JSON.parse(storedData);
+}
 
-        // 초기 로딩 시 로컬 스토리지 값을 확인하여 클래스 설정
-            if (starList.some((storedItem) => storedItem.title === title)) {
-                toggleStar.classList.add('on');
-            }
-        });
+liElements.forEach(function(li) {
+  const imgSrc = li.querySelector('img').getAttribute('src');
+  const title = li.querySelector('dt').textContent;
+  const description = li.querySelectorAll('dd')[0].textContent;
+  const price = li.querySelectorAll('dd')[1].textContent;
 
-        console.log(starList);
+  const item = {
+    imgSrc: imgSrc,
+    title: title,
+    description: description,
+    price: price
+  };
+
+  const toggleStar = li.querySelector('.t_star');
+  toggleStar.addEventListener('click', function() {
+    if (this.classList.contains('on')) {
+      this.classList.remove('on');
+      // 배열에서 아이템 제거
+      starList = starList.filter((storedItem) => storedItem.title !== title);
+    } else if (this.classList.contains('on_live')) {
+      this.classList.remove('on_live');
+      this.classList.add('on');
+      // 배열에 아이템 추가
+      starList.push(item);
+    } else {
+      this.classList.add('on_live');
+      setTimeout(() => {
+        this.classList.remove('on_live');
+        this.classList.add('on');
+        // 배열에 아이템 추가
+        starList.push(item);
+        // 변경된 배열을 로컬 스토리지에 저장
+        localStorage.setItem('starList', JSON.stringify(starList));
+      }, 350);
+    }
+
+    // 변경된 배열을 로컬 스토리지에 저장
+    localStorage.setItem('starList', JSON.stringify(starList));
+  });
+
+  // 초기 로딩 시 로컬 스토리지 값을 확인하여 클래스 설정
+  if (starList.some((storedItem) => storedItem.title === title)) {
+    toggleStar.classList.add('on');
+  }
+});
+
+console.log(starList);
+
+
+
 
 
 
@@ -797,7 +806,7 @@
         //     });
         // });
 
-        // li 요소 클릭 이벤트 등록
+        // li 요소 클릭 이벤트 등록//랭킹
         const starListWarLi = document.querySelectorAll('.starListWar li a');
         starListWarLi.forEach((li, index) => {
         li.addEventListener('click', function(event) {
@@ -908,5 +917,40 @@
 
     }
   </script>
+
+
+
+        <script>
+            
+            //상품 로컬로넣기
+            const links = document.querySelectorAll('.con2.starListWar li a');
+
+function saveToLocalStorage(event) {
+  event.preventDefault(); // 기본 링크 이동 동작을 막습니다.
+
+  const target = event.currentTarget; // 클릭된 요소를 가져옵니다.
+  const image = target.querySelector('img').getAttribute('src');
+  const title = target.querySelector('dl dt').textContent;
+  const price = target.querySelector('dl dd:nth-child(3)').textContent;
+
+  // 로컬 스토리지에 데이터 저장
+  const item = {
+    image,
+    title,
+    price
+  };
+  localStorage.setItem('recommendedItem', JSON.stringify(item));
+
+  // 링크로 이동
+  const href = target.getAttribute('href');
+  window.location.href = href;
+}
+
+links.forEach((link) => {
+  link.addEventListener('click', saveToLocalStorage);
+});
+
+
+        </script>
 </body>
 </html>

@@ -5,26 +5,26 @@ function getRandomChoiceByKeyword(keyword) {
       switch (randomKeyword) {
         case "귀여움":
           let cuteOptions = [
-            { id:1, image: "img/cute01.jpg", info: "귀여운 POP 스타일" },
-            { id:1, image: "img/cute02.jpg", info: "귀여운 POP 스타일" },
+            { id:1, image: "img/random/random13.PNG", info: "귀여운 POP 스타일" },
+            { id:1, image: "img/random/random14.PNG", info: "귀여운 POP 스타일" },
           ];
          return cuteOptions[Math.floor(Math.random() * cuteOptions.length)];
         case "액션":
           let coolOptions = [
-            { id:2, image: "img/pop01.jpg", info: "액션 POP 스타일" },
-            { id:2, image: "img/pop02.jpg", info: "액션 POP 스타일" },
+            { id:2, image: "img/random/random17.PNG", info: "액션 POP 스타일" },
+            { id:2, image: "img/random/random08.PNG", info: "액션 POP 스타일" },
           ];
          return coolOptions[Math.floor(Math.random() * coolOptions.length)];
         case "판타지":
           let fantasyOptions = [
-            { id:3, image: "img/fantasy01.jpg", info: "판타지 POP 스타일" },
-            { id:3, image: "img/fantasy02.jpg", info: "판타지 POP 스타일" },
+            { id:3, image: "img/random/random03.PNG", info: "판타지 POP 스타일" },
+            { id:3, image: "img/random/random06.PNG", info: "판타지 POP 스타일" },
           ];
          return fantasyOptions[Math.floor(Math.random() * fantasyOptions.length)];
           case "환상":
           let hwansangOptions = [
-            { id:4, image: "img/fantasy03.jpg", info: "애니 POP 스타일" },
-            { id:4, image: "img/fantasy04.jpg", info: "애니 POP 스타일" },
+            { id:4, image: "img/random/random02.PNG", info: "애니 POP 스타일" },
+            { id:4, image: "img/random/random07.PNG", info: "애니 POP 스타일" },
           ];
          return hwansangOptions[Math.floor(Math.random() * hwansangOptions.length)];
 
@@ -33,26 +33,26 @@ function getRandomChoiceByKeyword(keyword) {
 
           case "귀여움2":
           let cuteOptions2 = [
-            { id:1, image: "img/cute01.jpg", info: "귀여운 POP 스타일" },
-            { id:1, image: "img/cute02.jpg", info: "귀여운 POP 스타일" },
+            { id:1, image: "img/random/random10.PNG", info: "귀여운 POP 스타일" },
+            { id:1, image: "img/random/random15.PNG", info: "귀여운 POP 스타일" },
           ];
          return cuteOptions2[Math.floor(Math.random() * cuteOptions2.length)];
         case "액션2":
           let coolOptions2 = [
-            { id:2, image: "img/pop01.jpg", info: "액션 POP 스타일" },
-            { id:2, image: "img/pop02.jpg", info: "액션 POP 스타일" },
+            { id:2, image: "img/random/random02.PNG", info: "액션 POP 스타일" },
+            { id:2, image: "img/random/random16.PNG", info: "액션 POP 스타일" },
           ];
          return coolOptions2[Math.floor(Math.random() * coolOptions2.length)];
         case "판타지2":
           let fantasyOptions2 = [
-            { id:3, image: "img/fantasy01.jpg", info: "판타지 POP 스타일" },
-            { id:3, image: "img/fantasy02.jpg", info: "판타지 POP 스타일" },
+            { id:3, image: "img/random/random03.PNG", info: "판타지 POP 스타일" },
+            { id:3, image: "img/random/random05.PNG", info: "판타지 POP 스타일" },
           ];
          return fantasyOptions2[Math.floor(Math.random() * fantasyOptions2.length)];
           case "환상2":
           let hwansangOptions2 = [
-            { id:4, image: "img/fantasy05.jpg", info: "애니 POP 스타일" },
-            { id:4, image: "img/fantasy06.jpg", info: "애니 POP 스타일" },
+            { id:4, image: "img/random/random12.PNG", info: "애니 POP 스타일" },
+            { id:4, image: "img/random/random09.PNG", info: "애니 POP 스타일" },
           ];
          return hwansangOptions2[Math.floor(Math.random() * hwansangOptions2.length)];
 
@@ -60,26 +60,26 @@ function getRandomChoiceByKeyword(keyword) {
 
           case "귀여움3":
           let cuteOptions3 = [
-            { id:1, image: "img/cute01.jpg", info: "귀여운 POP 스타일" },
-            { id:1, image: "img/cute02.jpg", info: "귀여운 POP 스타일" },
+            { id:1, image: "img/random/random13.PNG", info: "귀여운 POP 스타일" },
+            { id:1, image: "img/random/random14.PNG", info: "귀여운 POP 스타일" },
           ];
          return cuteOptions3[Math.floor(Math.random() * cuteOptions3.length)];
         case "액션3":
           let coolOptions3 = [
-            { id:3, image: "img/pop01.jpg", info: "액션 POP 스타일" },
-            { id:3, image: "img/pop02.jpg", info: "액션 POP 스타일" },
+            { id:3, image: "img/random/random17.PNG", info: "액션 POP 스타일" },
+            { id:3, image: "img/random/random08.PNG", info: "액션 POP 스타일" },
           ];
          return coolOptions3[Math.floor(Math.random() * coolOptions3.length)];
         case "판타지3":
           let fantasyOptions3 = [
-            { id:3, image: "img/fantasy03.jpg", info: "판타지 POP 스타일" },
-            { id:3, image: "img/fantasy04.jpg", info: "판타지 POP 스타일" },
+            { id:3, image: "img/random/random03.PNG", info: "판타지 POP 스타일" },
+            { id:3, image: "img/random/random05.PNG", info: "판타지 POP 스타일" },
           ];
          return fantasyOptions3[Math.floor(Math.random() * fantasyOptions3.length)];
           case "환상3":
           let hwansangOptions3 = [
-            { id:4, image: "img/fantasy01.jpg", info: "애니 POP 스타일" },
-            { id:4, image: "img/fantasy02.jpg", info: "애니 POP 스타일" },
+            { id:4, image: "img/random/random12.PNG", info: "애니 POP 스타일" },
+            { id:4, image: "img/random/random09.PNG", info: "애니 POP 스타일" },
           ];
          return hwansangOptions3[Math.floor(Math.random() * hwansangOptions3.length)];
 
@@ -87,26 +87,26 @@ function getRandomChoiceByKeyword(keyword) {
 
           case "귀여움4":
           let cuteOptions4 = [
-            { id:1, image: "img/cute03.jpg", info: "귀여운 POP 스타일" },
-            { id:1, image: "img/cute04.jpg", info: "귀여운 POP 스타일" },
+            { id:1, image: "img/random/random10.PNG", info: "귀여운 POP 스타일" },
+            { id:1, image: "img/random/random15.PNG", info: "귀여운 POP 스타일" },
           ];
          return cuteOptions4[Math.floor(Math.random() * cuteOptions4.length)];
         case "액션4":
           let coolOptions4 = [
-            { id:2, image: "img/pop04.jpg", info: "액션 POP 스타일" },
-            { id:2, image: "img/pop03.jpg", info: "액션 POP 스타일" },
+            { id:2, image: "img/random/random02.PNG", info: "액션 POP 스타일" },
+            { id:2, image: "img/random/random16.PNG", info: "액션 POP 스타일" },
           ];
-         return coolOptions4[Math.floor(Math.random() * coolOptions3.length)];
+         return coolOptions4[Math.floor(Math.random() * coolOptions4.length)];
         case "판타지4":
           let fantasyOptions4 = [
-            { id:3, image: "img/fantasy03.jpg", info: "판타지 POP 스타일" },
-            { id:3, image: "img/fantasy04.jpg", info: "판타지 POP 스타일" },
+            { id:3, image: "img/random/random03.PNG", info: "판타지 POP 스타일" },
+            { id:3, image: "img/random/random06.PNG", info: "판타지 POP 스타일" },
           ];
          return fantasyOptions4[Math.floor(Math.random() * fantasyOptions4.length)];
           case "환상4":
           let hwansangOptions4 = [
-              { id:4, image: "img/fantasy01.jpg", info: "애니 POP 스타일" },
-              { id:4, image: "img/fantasy02.jpg", info: "애니 POP 스타일" },
+              { id:4, image: "img/random/random02.PNG", info: "애니 POP 스타일" },
+              { id:4, image: "img/random/random07.PNG", info: "애니 POP 스타일" },
           ];
          return hwansangOptions4[Math.floor(Math.random() * hwansangOptions4.length)];
 

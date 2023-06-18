@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="icon" href="img/login/logof.png" type="image/x-icon"> 
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="js/swiper.min.js"></script>
+    <title>팝마트_프로필</title>
+</head>
+<body>
+    <div class="wrapper main_site">
+        <div class="homeMain_site sub">
+            <header>
+                <div class="top">
+                    <h1><a href=""><img src="img/login/logo.png" alt="로고"></a></h1>
+                    <ul>
+                        <li><span>menu</span></li>
+                        <li><a href="search.html">검색</a></li>
+                        <li><a href="./shoppingBasket.html">장바구니</a></li>
+                    </ul>
+                </div><!--top : END-->
+
+            </header>
+            <div class="main">
+                <div class="profile">
+                    <h3>
+                        프로필
+                    </h3>
+                    <!-- 이미지를 미리보기할 요소 -->
+                    <p class="img_plorile">
+                        <img id="previewImage" src="img/plorile.jpg" alt="Preview Image">
+                    </p><!--img_plorile : END-->
+                    <label for="imageUpload" class="file-upload-label">
+                        <span id="uploadText">프로필 사진 바꾸기</span>
+                        <input type="file" id="imageUpload" accept="image/*" onchange="uploadImage(event)">
+                    </label>
+                    <div class="profile_text">
+
+                    </div><!--profile_text : END-->
+                    <p class="profile_ch">회원정보 수정란</p>
+                    <div class="profile_edit">
+                        <p>닉네임</p><input type="text" id="nickNameInput" placeholder="닉네임">
+                        <p>비밀번호</p><input type="password" id="passwordInput" placeholder="비밀번호">
+                        <p>이름</p><input type="text" id="nameInput" placeholder="이름">
+                        <p>이메일</p><input type="email" id="emailInput" placeholder="이메일">
+                        <button id="updateBtn">회원정보 바꾸기</button>
+                    </div><!--profile_edit : END-->
+                </div><!--rankingList : END-->
+                <script>
+
+                    function uploadImage(event) {
+                        let imageUpload = event.target;
+                        let previewImage = document.getElementById('previewImage');
+
+                        let file = imageUpload.files[0];
+                        let reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            previewImage.src = e.target.result;
+                            previewImage.alt = file.name;
+                        };
+
+                        reader.readAsDataURL(file);
+                    }
+
+
+
+
+                        // 회원정보 가져오기
+                        // 로컬 스토리지에서 저장된 정보 가져오기
+                        const storedData = localStorage.getItem('회원정보');
+                        let memberInfo = [];
+
+                        if (storedData) {
+                        memberInfo = JSON.parse(storedData);
+                        }
+
+                        // HTML 요소 선택
+                        const profileContainer = document.querySelector('.profile_text');
+
+                        // 회원정보 설정 함수
+                        function setMemberInfo() {
+                        profileContainer.innerHTML = `
+                            <div class="profile_text">
+                            <p><span>아이디  </span><span class="profile_email">${memberInfo[0].이메일_email}</span></p>
+                            <p><span>비밀번호  </span><span class="profile_password">${memberInfo[0].비밀번호_password}</span></p>
+                            <p><span>닉네임  </span><span class="profile_nick_name">${memberInfo[0].닉네임_nick}</span></p>
+                            <p><span>이름  </span><span class="profile_name">${memberInfo[0].이름_name}</span></p>
+                            </div><!--profile_text : END-->
+                        `;
+                        }
+
+                        // 인풋 창 설정 함수
+                        function setInputs() {
+                        const nickNameInput = document.querySelector('#nickNameInput');
+                        const passwordInput = document.querySelector('#passwordInput');
+                        const nameInput = document.querySelector('#nameInput');
+                        const emailInput = document.querySelector('#emailInput');
+
+                        nickNameInput.value = memberInfo[0].닉네임_nick;
+                        passwordInput.value = memberInfo[0].비밀번호_password;
+                        nameInput.value = memberInfo[0].이름_name;
+                        emailInput.value = memberInfo[0].이메일_email;
+                        }
+
+                        // 인풋 창에서 변경된 회원정보 업데이트
+                        function updateMemberInfo() {
+                        memberInfo[0].닉네임_nick = nickNameInput.value;
+                        memberInfo[0].비밀번호_password = passwordInput.value;
+                        memberInfo[0].이름_name = nameInput.value;
+                        memberInfo[0].이메일_email = emailInput.value;
+
+                        // 변경된 회원정보를 로컬 스토리지에 저장
+                        localStorage.setItem('회원정보', JSON.stringify(memberInfo));
+
+                        // 업데이트 후 다시 회원정보 설정
+                        setMemberInfo();
+                        }
+
+                        // 초기 회원정보 설정 실행
+                        setMemberInfo();
+
+                        // 인풋 창에 회원정보 설정 실행
+                        setInputs();
+
+                        // 업데이트 버튼 클릭 시 회원정보 업데이트
+                        updateBtn.addEventListener('click', updateMemberInfo);
+
+                </script>
+            </div><!--main : END-->
+            <div class="bottomMenu">
+                <ul>
+                    <li>
+                        <a href="./home.html">
+                            <img src="img/homeH.png" alt="홈" >
+                            <p>홈</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./ranking.html">
+                            <img src="img/ranking.png" alt="랭킹" class="on">
+                            <img src="img/rankingH.png" alt="랭킹" class="off">
+                            <p>랭킹</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./wishList.html">
+                            <img src="img/starB.png" alt="찜" class="on">
+                            <img src="img/starH.png" alt="찜" class="off">
+                            <p>찜</p>
+                        </a>
+                    </li>
+                    <li  class="active">
+                        <a href="./profile.html">
+                            <img src="img/my.png" alt="" class="on">
+                            <img src="img/myH.png" alt="" class="off">
+                            <p>마이페이지</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!--homeMain_site : END-->
+    </div><!--wrapper : END-->
+    <!-- <script src="js/signup.js"></script> -->
+    <script  src="js/common.js"></script>
+</body>
+</html>

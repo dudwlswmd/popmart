@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <script src="js/swiper.min.js"></script>
-    <title>팝마트_지도</title>
+    <title>팝마트_구매후기</title>
 </head>
 <body>
     <div class="wrapper main_site">
         <div class="homeMain_site">
             <header>
                 <div class="top">
-                    <h1><a href=""><img src="img/login/logo.png" alt="로고"></a></h1>
+                    <h1><a href="./home.html"><img src="img/login/logo.png" alt="로고"></a></h1>
                     <ul>
                         <li><span>menu</span></li>
-                        <li><a href="./search.html">검색</a></li>
+                        <li><a href="search.html">검색</a></li>
                         <li><a href="./shoppingBasket.html">장바구니</a></li>
                     </ul>
                 </div><!--top : END-->
@@ -31,8 +31,8 @@
                             <li class="swiper-slide"><a href="./home.html">투데이홈</a></li>
                             <li class="swiper-slide"><a href="./best.html">베스트샵</a></li>
                             <li class="swiper-slide"><a href="./time.html">타임딜24</a></li>
-                            <li class="swiper-slide"><a href="./review.html">구매후기</a></li>
-                            <li class="swiper-slide on"><a href="./map.html">매장안내</a></li>
+                            <li class="swiper-slide on"><a href="./review.html">구매후기</a></li>
+                            <li class="swiper-slide"><a href="./map.html">매장안내</a></li>
                             <li class="swiper-slide"><a href="./event.html">이벤트</a></li>
                         </ul>
                     </div>
@@ -48,41 +48,92 @@
             </header>
             <div class="main">
 
-                <div class="map_list">
-                    <h3>POPMART 매장 안내</h3>
-                    <img src="img/store_01.jpg" alt="">
-                    <div id="map" style="width:100%;height:400px;"></div>
-                    <img src="img/store_02.jpg" alt="">
-                    <img src="img/store_03.jpg" alt="">
-                    
-                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=587e6cd351589b9708341676e4e9798e"></script>
-                    
-                    <script>
-                        var container = document.getElementById('map');
-                        var options = {
-                            center: new kakao.maps.LatLng(37.55601069710384, 126.92164384141984),
-                            level: 3
-                        };
-                
-                        var map = new kakao.maps.Map(container, options);
-                        var imageSrc = 'https://dudwlswmd.github.io/popmart/img/login/logo.png', // 마커이미지의 주소입니다    
-                        imageSize = new kakao.maps.Size(100, 50), // 마커이미지의 크기입니다
-                        imageOption = {offset: new kakao.maps.Point(100, 50)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-                        
-                        // 마커가 표시될 위치입니다 
-                        var markerPosition  = new kakao.maps.LatLng(37.55601069710384, 126.92164384141984); 
+                <div class="review">
+                    <h3>구매후기</h3>
+                    <input type="text" id="nameInput" placeholder="이름">
+                    <textarea id="reviewInput" rows="4" cols="50" placeholder="후기를 입력하세요"></textarea>
+                    <button onclick="saveReview()">후기 저장</button>
+                    <div id="reviewList"></div>
+                </div><!--review : END-->
 
-                        // 마커를 생성합니다
-                        var marker = new kakao.maps.Marker({
-                            position: markerPosition
-                        });
 
-                        // 마커가 지도 위에 표시되도록 설정합니다
-                        marker.setMap(map);
-                    </script>
+                <script>
+// JavaScript
+function saveReview() {
+  const nameInput = document.getElementById("nameInput");
+  const reviewInput = document.getElementById("reviewInput");
+  const name = nameInput.value;
+  const review = reviewInput.value;
 
-                </div><!--map_list : END-->
-                
+  // 이전에 저장된 후기 목록 불러오기
+  let reviewList = JSON.parse(localStorage.getItem("purchaseReviewList")) || [];
+
+  // 새로운 후기 추가
+  reviewList.push({ id: generateId(), name: name, review: review });
+
+  // 후기 목록 저장
+  localStorage.setItem("purchaseReviewList", JSON.stringify(reviewList));
+
+  // 후기 목록 표시
+  displayReviewList();
+}
+
+function displayReviewList() {
+  const reviewListContainer = document.getElementById("reviewList");
+
+  // 후기 목록 초기화
+  reviewListContainer.innerHTML = "";
+
+  // 저장된 후기 목록 불러오기
+  const reviewList = JSON.parse(localStorage.getItem("purchaseReviewList")) || [];
+
+  // 후기 목록 표시
+  for (let i = 0; i < reviewList.length; i++) {
+    const reviewItem = document.createElement("div");
+    reviewItem.classList.add("review-item");
+
+    const id = reviewList[i].id;
+    const name = reviewList[i].name;
+    const review = reviewList[i].review;
+
+    reviewItem.innerHTML = `
+        <dl>
+            <dt># ${name}</dt>
+            <dd>${review}</dd>
+        </dl>
+        <button onclick="deleteReview('${id}')">후기삭제</button>
+    `;
+
+    reviewListContainer.appendChild(reviewItem);
+  }
+}
+
+function deleteReview(id) {
+  // 저장된 후기 목록 불러오기
+  let reviewList = JSON.parse(localStorage.getItem("purchaseReviewList")) || [];
+
+  // 해당 id를 가진 후기 데이터 삭제
+  reviewList = reviewList.filter((review) => review.id !== id);
+
+  // 수정된 후기 목록 저장
+  localStorage.setItem("purchaseReviewList", JSON.stringify(reviewList));
+
+  // 후기 목록 표시
+  displayReviewList();
+}
+
+function generateId() {
+  // 간단한 id 생성을 위해 현재 시간을 사용 (실제로는 더 복잡한 로직을 고려해야 함)
+  return Date.now().toString();
+}
+
+// 페이지 로드 시 후기 목록 표시
+window.onload = function() {
+  displayReviewList();
+};
+
+
+                </script>
                 
             </div><!--main : END-->
             <div class="bottomMenu">

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="icon" href="img/login/logof.png" type="image/x-icon"> 
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="js/swiper.min.js"></script>
+    <title>팝마트_상세페이지</title>
+</head>
+<body>
+    <div class="wrapper main_site">
+        <div class="homeMain_site">
+            <header>
+                <div class="top">
+                    <h1><a href=""><img src="img/login/logo.png" alt="로고"></a></h1>
+                    <ul>
+                        <li><span>menu</span></li>
+                        <li><a href="search.html">검색</a></li>
+                        <li><a href="./shoppingBasket.html">장바구니</a></li>
+                    </ul>
+                </div><!--top : END-->
+                <div class="botton">
+                    <div class="swiper gnbb">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide on"><a href="./home.html">투데이홈</a></li>
+                            <li class="swiper-slide"><a href="./best.html">베스트샵</a></li>
+                            <li class="swiper-slide"><a href="./time.html">타임딜24</a></li>
+                            <li class="swiper-slide"><a href="./review.html">구매후기</a></li>
+                            <li class="swiper-slide"><a href="./map.html">매장안내</a></li>
+                            <li class="swiper-slide"><a href="./event.html">이벤트</a></li>
+                        </ul>
+                    </div>
+                    <script>
+                        // 스와이퍼 초기화
+                        var swiper = new Swiper('.swiper.gnbb', {
+                            // 스와이퍼 옵션 설정
+                            slidesPerView: 'auto',
+                            spaceBetween:0, // 슬라이드 간의 간격 (px)
+                        });
+                    </script>
+                </div><!--botton : END-->
+            </header>
+            <div class="main">
+
+                <div class="detaillPage">
+                    <h3>상품 페이지</h3>
+                    <div class="goods">
+                        <!-- <img src="img/cute01.jpg" alt="추천아이템">
+                        <dl>
+                          <dt id="productName">몰리 해변 뮤직 페스티벌 BJD</dt>
+                          <dd id="productTitleEn">Molly Beach Music Festival BJD</dd>
+                          <dd id="price">180,000</dd>
+                        </dl>
+                        <input type="number" id="quantityInput" min="1" value="1" onchange="calculatePrice()">
+                        <button onclick="addToCart()">장바구니에 담기</button> -->
+                    </div><!--goods : END-->
+                </div><!--detaillPage : END-->
+                
+            </div><!--main : END-->
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                // 로컬 스토리지에서 데이터 가져오기
+                const storedItem = JSON.parse(localStorage.getItem('recommendedItem'));
+
+                // 가져온 데이터를 페이지에 채우기
+                if (storedItem) {
+                    const container = document.querySelector('.detaillPage .goods');
+                    container.innerHTML = `
+                    <img src="${storedItem.image}" alt="추천아이템">
+                    <dl>
+                        <dt id="productName">${storedItem.title}</dt>
+                        <dd id="productTitleEn">${storedItem.title}</dd>
+                        <dd id="price">${storedItem.price}</dd>
+                    </dl>
+                    <input type="number" id="quantityInput" min="1" value="1" onchange="calculatePrice()">
+                    <button onclick="addToCart()">장바구니에 담기</button>
+                    `;
+                }
+                });
+
+
+
+
+
+
+                function calculatePrice() {
+  const quantityInput = document.getElementById("quantityInput");
+  const priceElement = document.getElementById("price");
+  const quantity = quantityInput.value;
+  const pricePerItem = parseInt(priceElement.innerText.replace(/[^0-9]/g, "")); // 가격 요소에서 숫자만 추출하여 가격으로 변환
+
+  const totalPrice = quantity * pricePerItem;
+  priceElement.innerText = totalPrice.toLocaleString(); // 계산된 총 가격을 화면에 표시
+}
+
+function addToCart() {
+  const quantityInput = document.getElementById("quantityInput");
+  const priceElement = document.getElementById("price");
+  const productNameElement = document.getElementById("productName");
+  const productTitleEnElement = document.getElementById("productTitleEn");
+  const imageElement = document.querySelector(".goods img");
+
+  const quantity = quantityInput.value;
+  const pricePerItem = parseInt(priceElement.innerText.replace(/[^0-9]/g, "")); // 가격 요소에서 숫자만 추출하여 가격으로 변환
+  const totalPrice = quantity * pricePerItem;
+
+  // 이미지 경로 가져오기
+  const imagePath = imageElement.getAttribute("src");
+
+  // 장바구니에 추가할 상품 정보
+  const item = {
+    name: productNameElement.innerText, // 상품 이름
+    titleEn: productTitleEnElement.innerText, // 상품 영문 이름
+    price: totalPrice, // 총 가격
+    quantity: quantity, // 수량
+    image: imagePath, // 이미지 경로
+  };
+
+  // 이전에 저장된 장바구니 목록 불러오기
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  // 장바구니에 상품 추가
+  cartItems.push(item);
+
+  // 장바구니 목록 저장
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+  // 장바구니에 추가되었다는 메시지 또는 원하는 동작 수행
+  alert("장바구니에 상품이 추가되었습니다.");
+}
+
+
+
+                
+
+                // function calculatePrice() {
+                //     const quantityInput = document.getElementById("quantityInput");
+                //     const priceElement = document.getElementById("price");
+                //     const quantity = quantityInput.value;
+                //     const pricePerItem = parseInt(priceElement.innerText.replace(/[^0-9]/g, "")); // 가격 요소에서 숫자만 추출하여 가격으로 변환
+
+                //     const totalPrice = quantity * pricePerItem;
+                //     priceElement.innerText = totalPrice.toLocaleString(); // 계산된 총 가격을 화면에 표시
+                // }
+
+                // function addToCart() {
+                //     const quantityInput = document.getElementById("quantityInput");
+                //     const priceElement = document.getElementById("price");
+                //     const productNameElement = document.getElementById("productName");
+                //     const productTitleEnElement = document.getElementById("productTitleEn");
+
+                //     const quantity = quantityInput.value;
+                //     const pricePerItem = parseInt(priceElement.innerText.replace(/[^0-9]/g, "")); // 가격 요소에서 숫자만 추출하여 가격으로 변환
+
+                //     const totalPrice = quantity * pricePerItem;
+
+                //     // 장바구니에 추가할 상품 정보
+                //     const item = {
+                //         name: productNameElement.innerText, // 상품 이름
+                //         titleEn: productTitleEnElement.innerText, // 상품 영문 이름
+                //         price: totalPrice, // 총 가격
+                //         quantity: quantity, // 수량
+                //     };
+
+                //     // 이전에 저장된 장바구니 목록 불러오기
+                //     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+                //     // 장바구니에 상품 추가
+                //     cartItems.push(item);
+
+                //     // 장바구니 목록 저장
+                //     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+                //     // 장바구니에 추가되었다는 메시지 또는 원하는 동작 수행
+                //     alert("장바구니에 상품이 추가되었습니다.");
+                // }
+
+
+
+            </script>
+            <div class="bottomMenu">
+                <ul>
+                    <li class="active">
+                        <a href="./home.html">
+                            <img src="img/home.png" alt="홈"  class="on">
+                            <img src="img/homeOn2.png" alt="홈"  class="off">
+                            <p>홈</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./ranking.html">
+                            <img src="img/ranking.png" alt="랭킹" class="on">
+                            <img src="img/rankingH.png" alt="랭킹" class="off">
+                            <p>랭킹</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./wishList.html">
+                            <img src="img/starB.png" alt="찜" class="on">
+                            <img src="img/starH.png" alt="찜" class="off">
+                            <p>찜</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./profile.html">
+                            <img src="img/my.png" alt="" class="on">
+                            <img src="img/myH.png" alt="" class="off">
+                            <p>마이페이지</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!--homeMain_site : END-->
+    </div><!--wrapper : END-->
+    <!-- <script src="js/signup.js"></script> -->
+    <script src="js/common.js"></script>
+</body>
+</html>
