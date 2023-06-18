@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="icon" href="img/login/logof.png" type="image/x-icon"> 
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="js/swiper.min.js"></script>
+    <title>팝마트_베스트샵</title>
+</head>
+<body>
+    <div class="wrapper main_site">
+        <div class="homeMain_site">
+            <header>
+                <div class="top">
+                    <h1><a href=""><img src="img/login/logo.png" alt="로고"></a></h1>
+                    <ul>
+                        <li><span>menu</span></li>
+                        <li><a href="search.html">검색</a></li>
+                        <li><a href="">장바구니</a></li>
+                    </ul>
+                </div><!--top : END-->
+                <div class="botton">
+                    <div class="swiper gnbb">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide"><a href="home.html">투데이홈</a></li>
+                            <li class="swiper-slide on"><a href="#">베스트샵</a></li>
+                            <li class="swiper-slide"><a href="./time.html">타임딜24</a></li>
+                            <li class="swiper-slide"><a href="">구매후기</a></li>
+                            <li class="swiper-slide"><a href="">매장안내</a></li>
+                            <li class="swiper-slide"><a href="">고객센터</a></li>
+                        </ul>
+                    </div>
+                    <script>
+                        // 스와이퍼 초기화
+                        var swiper = new Swiper('.swiper.gnbb', {
+                            // 스와이퍼 옵션 설정
+                            slidesPerView: 'auto',
+                            spaceBetween:0, // 슬라이드 간의 간격 (px)
+                        });
+                    </script>
+                </div><!--botton : END-->
+            </header>
+            <div class="main">
+                <div class="bestList">
+                    <ul class="category_tab">
+                        <li class="on">전체</li>
+                        <li>귀여운</li>
+                        <li>액션</li>
+                        <li>판타지</li>
+                        <li>환상</li>
+                        <li>브랜드</li>
+                    </ul>
+                    <div class="loading">로딩 중...</div>
+                    <ul class="category_list ">
+                        <li>
+                            <p><img src="img/cute01.jpg" alt=""></p>
+                            <dl>
+                                <dt>스위트빈 x 인스팅토이 스위트 투게더 시리즈 (랜덤)</dt>
+                                <dd>Sweet Bean × INSTINCTOY Sweet Together</dd>
+                                <dd>180,000</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div><!--bestList : END-->
+                <script>
+const fetchData = async (category) => {
+  // 카테고리 리스트 초기화
+  categoryList.innerHTML = '';
+
+  // 로딩 텍스트나 GIF 이미지 표시
+  loading.style.display = 'block';
+
+  try {
+    const response = await fetch('data.json'); // data.json 파일 경로로 대체해야 합니다.
+    const data = await response.json();
+
+    let filteredData;
+    if (category === '전체') {
+      // 전체 카테고리를 선택한 경우, 모든 아이템 표시
+      filteredData = data.best;
+    } else {
+      // 특정 카테고리에 해당하는 아이템만 필터링
+      filteredData = data.best.filter(item => item.category === category);
+    }
+
+    filteredData.forEach(item => {
+      const listItem = document.createElement('li');
+
+      listItem.innerHTML = `
+        <p><img src="${item.img}" alt=""></p>
+        <dl>
+          <dt>${item.title}</dt>
+          <dd>${item.text}</dd>
+          <dd>${item.price}</dd>
+        </dl>
+      `;
+
+      categoryList.appendChild(listItem);
+    });
+
+    // 로딩 텍스트나 GIF 이미지 감추기
+    loading.style.display = 'none';
+  } catch (error) {
+    console.error('Error fetching JSON data:', error);
+    // 로딩 텍스트나 GIF 이미지 감추기
+    loading.style.display = 'none';
+  }
+};
+
+const categoryTab = document.querySelector('.category_tab');
+const categoryList = document.querySelector('.category_list');
+const loading = document.querySelector('.loading');
+
+// 초기 실행: "전체" 카테고리의 아이템들을 표시
+fetchData('전체');
+
+// 카테고리 탭 클릭 이벤트 핸들러
+categoryTab.addEventListener('click', event => {
+  if (event.target.tagName === 'LI') {
+    // 기존에 .on 클래스가 적용된 탭 초기화
+    const activeTab = categoryTab.querySelector('.on');
+    activeTab.classList.remove('on');
+
+    // 클릭한 탭에 .on 클래스 추가
+    event.target.classList.add('on');
+
+    const selectedCategory = event.target.textContent;
+    fetchData(selectedCategory);
+  }
+});
+
+
+                </script>
+            </div><!--main : END-->
+            <div class="bottomMenu">
+                <ul>
+                    <li class="active">
+                        <a href="">
+                            <img src="img/home.png" alt="홈"  class="on">
+                            <img src="img/homeOn2.png" alt="홈"  class="off">
+                            <p>홈</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./ranking.html">
+                            <img src="img/ranking.png" alt="랭킹" class="on">
+                            <img src="img/rankingH.png" alt="랭킹" class="off">
+                            <p>랭킹</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./wishList.html">
+                            <img src="img/starB.png" alt="찜" class="on">
+                            <img src="img/starH.png" alt="찜" class="off">
+                            <p>찜</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/my.png" alt="" class="on">
+                            <img src="img/myH.png" alt="" class="off">
+                            <p>마이페이지</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!--homeMain_site : END-->
+    </div><!--wrapper : END-->
+    <!-- <script src="js/signup.js"></script> -->
+    <script src="js/common.js"></script>
+</body>
+</html>

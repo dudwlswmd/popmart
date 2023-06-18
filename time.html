@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="icon" href="img/login/logof.png" type="image/x-icon"> 
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="js/swiper.min.js"></script>
+    <title>팝마트_타임딜</title>
+</head>
+<body>
+    <div class="wrapper main_site">
+        <div class="homeMain_site">
+            <header>
+                <div class="top">
+                    <h1><a href=""><img src="img/login/logo.png" alt="로고"></a></h1>
+                    <ul>
+                        <li><span>menu</span></li>
+                        <li><a href="search.html">검색</a></li>
+                        <li><a href="">장바구니</a></li>
+                    </ul>
+                </div><!--top : END-->
+                <div class="botton">
+                    <div class="swiper gnbb">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide"><a href="./home.html">투데이홈</a></li>
+                            <li class="swiper-slide"><a href="./best.html">베스트샵</a></li>
+                            <li class="swiper-slide on"><a href="#">타임딜24</a></li>
+                            <li class="swiper-slide"><a href="">구매후기</a></li>
+                            <li class="swiper-slide"><a href="">매장안내</a></li>
+                            <li class="swiper-slide"><a href="">고객센터</a></li>
+                        </ul>
+                    </div>
+                    <script>
+                        // 스와이퍼 초기화
+                        var swiper = new Swiper('.swiper.gnbb', {
+                            // 스와이퍼 옵션 설정
+                            slidesPerView: 'auto',
+                            spaceBetween:0, // 슬라이드 간의 간격 (px)
+                        });
+                    </script>
+                </div><!--botton : END-->
+            </header>
+            <div class="main">
+                <div class="time_dill">
+                    <h3>
+                        <img src="img/time.gif" alt="">
+                    </h3>
+                    <ul>
+                        <li>
+                            <p class="img"><img src="img/search/special1.jpg" alt="특가피규어"></p>
+                            <dl>
+                                <dt>
+                                    <span>쇼킹 타임딜</span>
+                                    <p class="countdown" data-time="01:06:51"></p>
+                                </dt>
+                                <dd>마이리틀포니 프리티 미 업 시리즈 (랜덤)_스페셜</dd>
+                                <dd>My Little Pony Pretty Me Up Series</dd>
+                                <dd>170,000원</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <p class="img"><img src="img/search/dimo06.jpg" alt="특가피규어"></p>
+                            <dl>
+                                <dt>
+                                    <span>쇼킹 타임딜</span>
+                                    <p class="countdown" data-time="09:02:10"></p>
+                                </dt>
+                                <dd>디무 소풍 가자 시리즈 (박스)</dd>
+                                <dd>Dimoo Go on an Outing Together</dd>
+                                <dd>230,000원</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <p class="img"><img src="img/search/PUCKY02.jpg" alt="특가피규어"></p>
+                            <dl>
+                                <dt>
+                                    <span>쇼킹 타임딜</span>
+                                    <p class="countdown" data-time="01:00:00"></p>
+                                </dt>
+                                <dd>푸키 래빗 카페 시리즈 (박스)</dd>
+                                <dd>PUCKY Rabbit Cafe</dd>
+                                <dd>180,000원</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <p class="img"><img src="img/search/molly03.jpg" alt="특가피규어"></p>
+                            <dl>
+                                <dt>
+                                    <span>쇼킹 타임딜</span>
+                                    <p class="countdown" data-time="00:00:30"></p>
+                                </dt>
+                                <dd>몰리 X 토이스토리 버즈 라이트이어 BJD_MOLLY</dd>
+                                <dd>MOLLY Buzz Lightyear 액션 Figure</dd>
+                                <dd>100,000원</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <p class="img"><img src="img/search/disney04.jpg" alt="특가피규어"></p>
+                            <dl>
+                                <dt>
+                                    <span>쇼킹 타임딜</span>
+                                    <p class="countdown" data-time="00:00:30"></p>
+                                </dt>
+                                <dd>디즈니 픽사 흔들흔들 스프링카 시리즈 (랜덤)_disney</dd>
+                                <dd>Disney Pixar Shake of Pixar</dd>
+                                <dd>130,000원</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div><!--time_dill : END-->
+                
+                
+                <script>
+                  // DOM 요소 가져오기
+                  const countdownElements = document.querySelectorAll('.countdown');
+                
+                  // 카운트다운 함수
+                  function startCountdown() {
+                    countdownElements.forEach(countdownElement => {
+                      // data-time 속성 값 가져오기
+                      const timeAttribute = countdownElement.getAttribute('data-time');
+                      const timeParts = timeAttribute.split(':');
+                      const hours = parseInt(timeParts[0], 10);
+                      const minutes = parseInt(timeParts[1], 10);
+                      const seconds = parseInt(timeParts[2], 10);
+                
+                      let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+                
+                      // 카운트다운 업데이트 함수
+                      function updateCountdown() {
+                        const hoursLeft = Math.floor(totalSeconds / 3600);
+                        const minutesLeft = Math.floor((totalSeconds % 3600) / 60);
+                        const secondsLeft = totalSeconds % 60;
+                
+                        // 남은 시간 표시
+                        countdownElement.textContent = `${hoursLeft.toString().padStart(2, '0')}:${minutesLeft.toString().padStart(2, '0')}:${secondsLeft.toString().padStart(2, '0')}`;
+                
+                        // 1초 감소
+                        totalSeconds--;
+                
+                        if (totalSeconds < 0) {
+                          clearInterval(countdownInterval);
+                          countdownElement.textContent = '타임딜 종료';
+                        }
+                      }
+                
+                      // 초기 카운트다운 업데이트
+                      updateCountdown();
+                
+                      // 1초마다 카운트다운 업데이트
+                      const countdownInterval = setInterval(updateCountdown, 1000);
+                    });
+                  }
+                
+                  // 타임딜 카운트다운 자동 시작
+                  startCountdown();
+                </script>
+                
+            </div><!--main : END-->
+            <div class="bottomMenu">
+                <ul>
+                    <li class="active">
+                        <a href="">
+                            <img src="img/home.png" alt="홈"  class="on">
+                            <img src="img/homeOn2.png" alt="홈"  class="off">
+                            <p>홈</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./ranking.html">
+                            <img src="img/ranking.png" alt="랭킹" class="on">
+                            <img src="img/rankingH.png" alt="랭킹" class="off">
+                            <p>랭킹</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./wishList.html">
+                            <img src="img/starB.png" alt="찜" class="on">
+                            <img src="img/starH.png" alt="찜" class="off">
+                            <p>찜</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/my.png" alt="" class="on">
+                            <img src="img/myH.png" alt="" class="off">
+                            <p>마이페이지</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!--homeMain_site : END-->
+    </div><!--wrapper : END-->
+    <!-- <script src="js/signup.js"></script> -->
+    <script src="js/common.js"></script>
+</body>
+</html>

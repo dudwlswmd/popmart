@@ -211,6 +211,47 @@ button{
     background-repeat: no-repeat;
     background-size: contain;
 } 
+#login-form > input.loginBts{
+    width: 50%;
+    display: block;
+    margin: 10px auto;
+    font-size: 14px;
+    height: 40px;
+    font-weight: bold;
+    background: #0f0;
+
+}
+.login-wrapper .login_bts{
+
+    a{
+        height: 40px;
+        font-size: 14px;
+        line-height: 40px;
+        position: relative;
+        margin-bottom: 5px;
+        float: left;
+        width: 50%;
+        border:0;
+        margin:0;
+        &:nth-child(2){
+            &::after{
+                position: absolute;
+                content: "";
+                top:0;
+                left: 0;
+                display: block;
+                width: 5px;
+                height: 100%;
+                background: #111;
+            }
+        }
+        &:last-child{
+            margin-top: 5px;
+            width: 100%;
+            border: 0;
+        }
+    }
+}
 button{
     color: #fff;
     font-size: 14px;
@@ -393,6 +434,8 @@ button{
 .main_Logo{
     &.random{
         position: absolute;
+        top:0;
+        z-index: 100;
         &.on{
             background: #fff;
             .logo{
@@ -1732,6 +1775,20 @@ footer{
 
 
 .rankingList{
+    h3{
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background: #111;
+        margin: 0px 0px 0px;
+        padding: 10px;
+        position: relative;
+        .blinking-dots {
+            // visibility: hidden; /* 점 숨김 */
+            color: #0f0;
+          }
+        
+    }
     ul{
         display: flex;
         flex-wrap:wrap;
@@ -1745,12 +1802,15 @@ footer{
                     width: 40px;
                     height: 40px;
                     font-size: 18px;
-                    line-height: 40px;
+                    line-height: 34px;
                     color:#0f0;
+                    border:2px solid #fff;
                     font-weight: bold;
                     &::after{
-                        top: 22px;
-                        left: 42px;
+                        top: 19px;
+                        left: 36px;
+                        border: 2px solid #fff;
+                        height: 15px;
                     }
                 }
             }
@@ -1770,7 +1830,7 @@ footer{
                         content: "";
                         width: 50px;
                         position: absolute;
-                        top: 12px;
+                        top: 13px;
                         left: 32px;
                         height: 20px;
                         background: url(../img/login/logo.png) no-repeat center;
@@ -1789,8 +1849,27 @@ footer{
                     color:#111;
                     font-size:14px;
                     font-weight: bold;
+                    text-align: left;
+                    margin: 5px;
+                    width: 95%;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
                 }
-                dd{}
+                dd{
+                    font-size:12px;
+                    color: #868686;
+                    margin: 5px;
+                    width: 95%;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    &:last-child{
+                        font-size: 14px;
+                        color:#df0000;
+                        font-weight: bold;
+                    }
+                }
             }
         }//li : END
     }
@@ -1825,3 +1904,198 @@ footer{
 /// ////////////////////////////////////////////팝마트 랭킹/////////////////////////////////////////////////
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////팝마트 베스트샵////////////////////////////////////////////////
+
+.bestList{
+    .category_tab{
+            background: #111;
+            display: flex;
+            align-items: center;
+            color:#fff;
+            li{
+                position: relative;
+                cursor: pointer;
+                padding: 10px;
+                font-size:12px;
+                &.on{
+                    font-weight: bold;
+                    background: #0f0;
+                    color:#111;
+                    border-bottom: 4px solid #111;
+                }
+            }
+    }//category_tab : END
+
+    .category_list{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        li{
+            width: 33.33%;
+            padding: 5px;
+            img{width: 100%;}
+            dl{
+                dt{    
+                    font-size: 14px;
+                    margin: 10px 0 3px;
+                    width: 95%;
+                    font-weight: bold;
+                    color:#111;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;}
+                dd{
+                    font-size: 12px;
+                    width: 95%;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    &:last-child{
+                        font-size: 12px;
+                        font-weight: bold;
+                        margin: 5px 0 15px;
+                        color: #df0000;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+/////////////////////////////////////////////////팝마트 베스트샵 끝///////////////////////////////////////////////
+
+
+
+
+
+
+//////////////////////////////////////////////////타임딜///////////////////////////////////////////////////////
+
+
+
+.time_dill {
+    h3{
+        img{width: 100%;}
+    }
+    ul {
+      padding: 10px 20px;
+      li {
+        position: relative;
+        width: 100%;
+        display: inline-block;
+        margin: 10px 0;
+        p.img {
+          width: 50%;
+          height: 180px;
+          float: left;
+          overflow: hidden;
+          border: 3px solid #111;
+          border-radius: 10px 0 0 0;
+  
+          img {
+            width: 100%;
+            position: relative;
+            top: -40px;
+          }
+        }
+  
+        dl {
+          padding: 0px 10px;
+          width: 50%;
+          float: left;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+  
+          dt {
+            position: relative;
+            display: inline-block;
+            margin: 20px 0;
+            width: 100%;
+  
+            span {
+              float: left;
+              display: block;
+              background: #0f0;
+              color: #111;
+              font-weight: bold;
+              padding: 10px 20px;
+              animation: blink 3s infinite;
+              transition: 0.5s;
+                font-size: 14px;
+              @keyframes blink {
+                0% {
+                  background: #0f0;
+                  color: #111;
+                }
+                50% {
+                  background: #111;
+                  color: #fff;
+                }
+                100% {
+                  background: #0f0;
+                  color: #111;
+                }
+              }
+            }
+  
+            p {
+              float: left;
+              display: block;
+              background: #111;
+              color: #fff;
+              padding: 10px;
+              font-size: 14px;
+            }
+          }
+          dd {
+            display: inline-block;
+            width: 100%;
+            font-size: 14px;
+            color: #111;
+            font-weight: bold;
+            margin: 5px 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+  
+            &:last-child {
+              color: #df0000;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////타임딜 끝///////////////////////////////////////////////////////
