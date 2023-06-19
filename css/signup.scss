@@ -695,6 +695,7 @@ transition: opacity 0.5s;
     background-color: #111;
     color: #fff;
     font-size: 0;
+    transition: 0.5s;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -969,7 +970,14 @@ header.on .botton{
                     li{
                         height: 280px;
                         overflow: hidden;
-                        img{width:100%;}
+                        position: relative;
+                        img{
+                            position: absolute;
+                            top:0;
+                            left: 50%;
+                            transform: translate(-50%,-0%);
+                            width:500px;
+                        }
                     }
                 }
                 .swiper-pagination{
@@ -2019,7 +2027,7 @@ footer{
           img {
             width: 100%;
             position: relative;
-            top: -40px;
+            top: 0px;
           }
         }
   
@@ -2402,3 +2410,52 @@ footer{
 
 
 ////////////////////////////////////////////////////장바구니 끝//////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////반응형 미디워쿼리///////////////////////////////
+/// //////////////
+/// 
+/// 
+
+
+@media screen and (max-width: 480px) {
+
+    .btn-group button{
+        height: 280px !important;
+    }
+
+
+}
+@media screen and (max-width: 430px) {
+
+    .btn-group button{
+        height: 250px !important;
+    }
+
+
+}
+@media screen and (max-width: 390px) {
+
+    .btn-group button{
+        height: 240px !important;
+    }
+
+
+}
+
+
+
+//////////////////////////////////////////////////반응형 미디워쿼리 끝///////////////////////////////
+/// 

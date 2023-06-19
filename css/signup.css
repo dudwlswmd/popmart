@@ -656,6 +656,7 @@ button {
   background-color: #111;
   color: #fff;
   font-size: 0;
+  transition: 0.5s;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -977,9 +978,14 @@ header.on .botton a::before {
 .wrapper.main_site .homeMain_site .visual .visual_swiper ul li {
   height: 280px;
   overflow: hidden;
+  position: relative;
 }
 .wrapper.main_site .homeMain_site .visual .visual_swiper ul li img {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 500px;
 }
 .wrapper.main_site .homeMain_site .visual .visual_swiper .swiper-pagination {
   color: #fff;
@@ -1854,7 +1860,7 @@ footer dl dd {
 .time_dill ul li p.img img {
   width: 100%;
   position: relative;
-  top: -40px;
+  top: 0px;
 }
 .time_dill ul li dl {
   padding: 0px 10px;
@@ -2134,4 +2140,20 @@ footer dl dd {
   margin: 0px 0px 0px;
   padding: 10px;
   position: relative;
+}
+
+@media screen and (max-width: 480px) {
+  .btn-group button {
+    height: 280px !important;
+  }
+}
+@media screen and (max-width: 430px) {
+  .btn-group button {
+    height: 250px !important;
+  }
+}
+@media screen and (max-width: 390px) {
+  .btn-group button {
+    height: 240px !important;
+  }
 }/*# sourceMappingURL=signup.css.map */
