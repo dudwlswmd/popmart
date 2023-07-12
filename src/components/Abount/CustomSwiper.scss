@@ -1,0 +1,97 @@
+.CustomSwiper{
+     position: absolute;
+     top: 10%;
+     left: 5%;
+     width: 700px;
+     height: 700px;
+     .swiper-button-prev, .swiper-rtl .swiper-button-next{
+          z-index: 11;
+     }
+
+     .swiper-button-prev {
+          top: auto;
+          bottom: 0px;
+          right: auto;
+          left: 0;
+          width: 35px;
+          height: 50px;
+          background: #111;
+          transition: 0.1s;
+          border-bottom: 4px solid #ff0000;
+          border-left: 4px solid #ff0000;
+               &::after{
+               position: absolute;
+               bottom:3px;
+               left:3px;
+               width: 102%;
+               height: 101%;
+               background: #ffc300;
+               font-size: 0;
+               transition: 0.1s;
+               }
+               &:hover{
+               &::after{
+                    bottom:5px;
+                    left:5px;
+               }
+               }
+     }
+
+     .swiper-button-next {
+          top: auto;
+          right: auto;
+          left: 60px;
+          bottom: 10px;
+          width: 35px;
+          height: 50px;
+          background: #111;
+          transition: 0.1s;
+          border-top: 4px solid #ff0000;
+          border-right: 4px solid #ff0000;
+          z-index: 11;
+          &::after{
+               position: absolute;
+               top:3px;
+               right:3px;
+               width: 102%;
+               height: 101%;
+               background: #ffc300;
+               font-size: 0;
+               transition: 0.1s;
+          }
+
+          &:hover{
+               &::after{
+                    top:5px;
+                    right:5px;
+               }
+          }
+     }
+     .swiper {
+          width: 100%;
+          height: 100%;
+     }
+     
+     .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+     
+          /* Center slide text vertically */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+     }
+     
+     .swiper-slide img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+     }
+     
+     .swiper {
+          margin-left: auto;
+          margin-right: auto;
+     }
+}

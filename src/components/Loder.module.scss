@@ -1,0 +1,365 @@
+
+
+
+
+/*! - GLOBAL: 1 LOADER */
+.sticker {
+     /* transition: 0.3s ease-in; */
+     transition: 0.4s ease-in;
+}
+     .loader{
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 15;
+          transform-origin: right top;
+     }
+     .bgfill {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          background-color: #1a1818;
+          transform-origin: left bottom;
+     }
+     .stickerWrap {
+          position: absolute;
+          left: 0;
+          top: 0;
+          left: 50%;
+          top: 50%;
+          margin: -500px 0 0 -900px;
+          width: 1800px;
+          height: 1000px;
+          /* visibility: hidden; */
+          visibility: visible;
+          /* display: none; */
+     }
+     .sticker[data-type="1"] {
+          width: 498px;
+     }
+     .sticker[data-type="1"][data-num="1"] {
+          left: -122px;
+          top: 348px;
+          z-index: 13;
+     }
+     .sticker[data-type="1"][data-num="1"] img {
+          transform: rotate(-23deg);
+     }
+     .sticker[data-type="1"][data-num="2"] {
+          left: 328px;
+          top: 139px;
+          z-index: 14;
+     }
+     .sticker[data-type="1"][data-num="2"] img {
+          transform: rotate(4deg);
+     }
+     .sticker[data-type="1"][data-num="3"] {
+          left: 1080px;
+          top: 110px;
+          z-index: 16;
+     }
+     .sticker[data-type="1"][data-num="3"] img {
+          transform: rotate(20deg);
+     }
+     .sticker[data-type="1"][data-num="4"] {
+          left: 1036px;
+          top: 401px;
+          z-index: 15;
+     }
+     .sticker[data-type="1"][data-num="4"] img {
+          transform: rotate(20deg);
+     }
+     .sticker[data-type="1"][data-num="5"] {
+          left: -72px;
+          top: 807px;
+          z-index: 17;
+     }
+     .sticker[data-type="1"][data-num="5"] img {
+          transform: rotate(20deg);
+     }
+     .sticker[data-type="2"] {
+          width: 498px;
+     }
+     .sticker[data-type="2"][data-num="1"] {
+          /* left: -136px; top: -29px; */
+          left: -82px;
+          top: 19px;
+          z-index: 10;
+     }
+     .sticker[data-type="2"][data-num="1"] img {
+          transform: rotate(6deg);
+     }
+     .sticker[data-type="2"][data-num="2"] {
+          left: 205px;
+          top: -87px;
+          z-index: 6;
+     }
+     .sticker[data-type="2"][data-num="2"] img {
+          transform: rotate(-39deg);
+     }
+     .sticker[data-type="2"][data-num="3"] {
+          left: -112px;
+          top: 634px;
+          z-index: 8;
+     }
+     .sticker[data-type="2"][data-num="3"] img {
+          transform: rotate(-39deg);
+     }
+     .sticker[data-type="2"][data-num="4"] {
+          /* left: 192px; top: 697px; */
+          left: 202px;
+          top: 617px;
+          z-index: 12;
+     }    
+     .sticker[data-type="2"][data-num="4"] img {
+          transform: rotate(16deg);
+     }
+     .sticker[data-type="2"][data-num="5"] {
+          left: 578px;
+          top: 357px;
+          z-index: 7;
+     }
+     .sticker[data-type="2"][data-num="5"] img {
+          transform: rotate(-39deg);
+     }
+     .sticker[data-type="2"][data-num="6"] {
+          /* left: 748px; top: 117px; z-index: 4; */
+          left: 668px;
+          top: 97px;
+          z-index: 0;
+     }
+     .sticker[data-type="2"][data-num="6"] img {
+          transform: rotate(0deg);
+     }
+     .sticker[data-type="2"][data-num="7"] {
+          /* left: 1176px; top: -57px; */
+          left: 1166px;
+          top: -67px;
+          z-index: 9;
+     }
+     .sticker[data-type="2"][data-num="7"] img {
+          transform: rotate(6deg);
+     }
+     .sticker[data-type="2"][data-num="8"] {
+          left: 791px;
+          top: 651px;
+          z-index: 5;
+     }
+     .sticker[data-type="2"][data-num="8"] img {
+          transform: rotate(0deg);
+     }
+     .sticker[data-type="2"][data-num="9"] {
+          /* left: 1374px; */
+          left: 1365px;
+          top: 600px;
+          z-index: 11;
+     }
+     .sticker[data-type="2"][data-num="9"] img {
+          transform: rotate(-39deg);
+     }
+     .sticker[data-type="3"] {
+          width: 462px;
+     }
+     .sticker[data-type="3"][data-num="1"] {
+          left: 427px;
+          top: -61px;
+          z-index: 19;
+     }
+     .sticker[data-type="3"][data-num="1"] img {
+          transform: rotate(12deg);
+     }
+     .sticker[data-type="3"][data-num="2"] {
+          /* left: 503px; top: 695px; */
+          left: 493px;
+          top: 745px;
+          z-index: 21;
+     }
+     .sticker[data-type="3"][data-num="2"] img {
+          transform: rotate(-17deg);
+     }
+     .sticker[data-type="3"][data-num="3"] {
+          left: 1520px;
+          top: 290px;
+          z-index: 20;
+     }
+     .sticker[data-type="3"][data-num="3"] img {
+          transform: rotate(-17deg);
+     }
+     .sticker[data-type="3"][data-num="4"] {
+          left: 1434px;
+          top: 490px;
+          z-index: 18;
+     }
+     .sticker[data-type="3"][data-num="4"] img {
+          transform: rotate(12deg);
+     }
+     .sticker[data-type="3"][data-num="5"] {
+          left: 1562px;
+          top: 930px;
+          z-index: 22;
+     }
+     .sticker[data-type="3"][data-num="5"] img {
+          transform: rotate(-17deg);
+     }
+     .sticker[data-type="4"] {
+          width: 460px;
+     }
+     .sticker[data-type="4"][data-num="1"] {
+          left: 4px;
+          top: 832px;
+          z-index: 29;
+     }
+     .sticker[data-type="4"][data-num="1"] img {
+          transform: rotate(34deg);
+     }
+     .sticker[data-type="4"][data-num="2"] {
+          left: 232px;
+          top: 520px;
+          z-index: 25;
+     }
+     .sticker[data-type="4"][data-num="2"] img {
+          transform: rotate(38deg);
+     }
+     .sticker[data-type="4"][data-num="3"] {
+          left: 649px;
+          top: -12px;
+          z-index: 2;
+     }
+     .sticker[data-type="4"][data-num="3"] img {
+          transform: rotate(-13deg);
+     }
+     .sticker[data-type="4"][data-num="4"] {
+          left: 1288px;
+          top: 39px;
+          z-index: 23;
+     }
+     .sticker[data-type="4"][data-num="4"] img {
+          transform: rotate(0deg);
+     }
+     .sticker[data-type="4"][data-num="5"] {
+          /* left: 1535px; */
+          left: 1455px;
+          top: 244px;
+          z-index: 3;
+     }
+     .sticker[data-type="4"][data-num="5"] img {
+          transform: rotate(93deg);
+     }
+     .sticker[data-type="4"][data-num="6"] {
+          left: 1162px;
+          top: 909px;
+          z-index: 24;
+     }
+     .sticker[data-type="4"][data-num="6"] img {
+          transform: rotate(32deg);
+     }
+     .sticker[data-type="5"] {
+          width: 474px;
+     }
+     .sticker[data-type="5"][data-num="1"] {
+          left: -124px;
+          top: -27px;
+          z-index: 26;
+     }
+     .sticker[data-type="5"][data-num="1"] img {
+          transform: rotate(-8deg);
+     }
+     .sticker[data-type="5"][data-num="2"] {
+          /* left: 879px; top: -102px; */
+          left: 893px;
+          top: -63px;
+          z-index: 1;
+     }
+     .sticker[data-type="5"][data-num="2"] img {
+          transform: rotate(45deg);
+     }
+     .sticker[data-type="5"][data-num="3"] {
+          left: 1496px;
+          top: 19px;
+          z-index: 27;
+     }
+     .sticker[data-type="5"][data-num="3"] img {
+          transform: rotate(45deg);
+     }
+     .sticker[data-type="5"][data-num="4"] {
+          left: 554px;
+          top: 883px;
+          z-index: 28;
+     }
+     .sticker[data-type="5"][data-num="4"] img {
+          transform: rotate(-30deg);
+     }
+
+
+
+     .part {
+          position: absolute;
+          left: 0;
+          top: 0;
+     }
+     .part img {
+          width: 100%;
+          height: auto;
+          display: block;
+     }
+
+
+.num01.on{transform: translate(0px, 1200px) rotate(129.62deg);}
+.num02.on{transform: translate(0px, 1200px) rotate(64.11deg);}
+.num03.on{transform: translate(0px, 1200px) rotate(21.84deg);}
+.num04.on{transform: translate(0px, 1200px) rotate(-80.65deg);}
+.num05.on{transform: translate(0px, 1200px) rotate(-119.33deg);}
+.num06.on{transform: translate(0px, 1200px) rotate(-47.06deg);}
+.num07.on{transform: translate(0px, 1200px) rotate(-1.54deg);}
+.num08.on{transform: translate(0px, 1200px) rotate(-137.43deg);}
+.num09.on{transform: translate(0px, 1200px) rotate(43.27deg);}
+.num10.on{transform: translate(0px, 1200px) rotate(107.46deg);}
+.num11.on{transform: translate(0px, 1200px) rotate(84.43deg);}
+.num12.on{transform: translate(0px, 1200px) rotate(19.71deg);}
+.num13.on{transform: translate(0px, 1200px) rotate(-56.76deg);}
+.num14.on{transform: translate(0px, 1200px) rotate(-20.35deg);}
+.num15.on{transform: translate(0px, 1200px) rotate(-16.29deg);}
+.num16.on{transform: translate(0px, 1200px) rotate(87.98deg);}
+.num17.on{transform: translate(0px, 1200px) rotate(-145.97deg);}
+.num18.on{transform: translate(0px, 1200px) rotate(-74.63deg);}
+.num19.on{transform: translate(0px, 1200px) rotate(23.91deg);}
+.num20.on{transform: translate(0px, 1200px) rotate(129.48deg);}
+.num21.on{transform: translate(0px, 1200px) rotate(-40.71deg);}
+.num22.on{transform: translate(0px, 1200px) rotate(18.15deg);}
+.num23.on{transform: translate(0px, 1200px) rotate(120.02deg);}
+.num24.on{transform: translate(0px, 1200px) rotate(-140.78deg);}
+.num25.on{transform: translate(0px, 1200px) rotate(41.64deg);}
+.num26.on{transform: translate(0px, 1200px) rotate(-65.69deg);}
+.num27.on{transform: translate(0px, 1200px) rotate(-96.87deg);}
+.num28.on{transform: translate(0px, 1200px) rotate(-16.15deg);}
+.num29.on{transform: translate(0px, 1200px) rotate(-5.61deg);}
+
+.on {
+     animation-name: fall;
+     animation-duration: 1.5s;
+     animation-timing-function: ease-out;
+     animation-fill-mode: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

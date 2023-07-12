@@ -1,0 +1,33 @@
+.MainSection4{
+    height: 110vh;
+    position: relative;
+    .MainSection4Bg{
+        position: absolute;
+        bottom:-1px;
+        left: 0;
+        width: 100%;
+    }
+    .container {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 35%;
+        left: 50%;
+    }
+    .img_h{
+        top: 25%;
+        right: 6%;
+        transform: scaleX(1) rotate(15deg) translateY(10px);
+        animation: img_animation 7s infinite;
+        @keyframes img_animation {
+            0% {
+                transform: scaleX(1) rotate(15deg) translateY(10px);
+            }
+            50% {
+                transform: scaleX(1) rotate(15deg) translateY(0px);
+            }
+            100% {
+                transform: scaleX(1) rotate(15deg) translateY(10px);
+            }
+          }
+    }
+}

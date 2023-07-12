@@ -1,0 +1,137 @@
+.ContactSection1{
+     width: 100%;
+     height: 110vh;
+     background: #ffc300;
+     position: relative;
+     .doll{
+          position: absolute;
+          bottom:0;
+          left: 0;
+          width: 390px;
+          filter: grayscale(1);
+     }
+     .center {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -55%);
+          width: 70%;
+          display: flex;
+          h3{
+               font-size:100px;
+               font-weight: bold;
+               font-family: "ANTON";
+               margin-bottom: 50px;
+          }
+          .left{
+               width: 50%;
+               .flex{
+                    display: flex;
+               }
+               textarea,input{
+                    width: 50%;
+                    margin: 5px;
+                    display: inline-block;
+                    border: 0;
+                    height: 50px;
+                    padding: 0 10px;
+                    font-size: 14px;
+                    font-family:"KBO-Dia-Gothic_bold";
+                    flex: 1;
+                    &::placeholder{
+                         color: #111;
+                    }
+                    &.name{
+                         
+                    }
+                    &.memo{
+                         padding: 10px;
+                         width: 95.5%;
+                         height: 300px;
+                    }
+               }//textarea,input : END
+               button{
+                    display: inline-block;
+                    width: 100%;
+                    height: 50px;
+                    border: 0;
+                    color: #ffc300;
+                    font-size: 18px;
+                    cursor: pointer;
+                    transition: 0.4s;
+                    position: relative;
+                    background: none;
+                    transition: 0.3s;
+                    border: 0;
+                    &::after{
+                         display: block;
+                         content: "";
+                         position: absolute;
+                         top:0;
+                         left: 0;
+                         z-index: -2;
+                         width: 100%;
+                         height: 100%;
+                         background: #111;
+                         transition: 0.3s;
+                    }
+                    &::before{
+                         display: block;
+                         content: "";
+                         position: absolute;
+                         top:0;
+                         left: 0;
+                         z-index: -1;
+                         width: 00%;
+                         height: 100%;
+                         background: #ffc300;
+                         transition: 0.3s;
+                    }
+                    &:hover{
+                         &::after{
+                              transform: rotate(-2deg);
+                         }
+                    }
+               }
+          }//left : END
+          .right{
+               width: 50%;
+               position: relative;
+               div{
+                    position: absolute;
+                    top:50%;
+                    left: 50%;
+                    width: 100%;
+                    transform: translate(-50%,-50%);
+                    padding-left: 10%;
+                    h3{
+                         font-size: 40px;
+                         font-family: "KBO-Dia-Gothic_bold";
+                         span{
+                              display: block;
+                              font-family: "KBO-Dia-Gothic_bold";
+                              margin: 10px 0;
+                         }
+                    }
+                    p{
+                         font-family: "KBO-Dia-Gothic_bold";
+                         font-size:18px;
+                         span{
+                              display: block;
+                              font-family: "KBO-Dia-Gothic_bold";
+                              font-size: 18px;
+                              width: 110%;
+                              margin: 15px 0px;
+                         }
+                    }
+               }
+
+          }
+     }
+     .ContactSection1Bg{
+          position: absolute;
+          bottom:-1px;
+          left: 0;
+          width: 100%;
+     }
+}

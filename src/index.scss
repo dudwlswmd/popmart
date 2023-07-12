@@ -1,0 +1,1565 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #212121;
+}
+
+
+
+body::-webkit-scrollbar {
+  width: 8px;  /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #ff0000; /* 스크롤바의 색상 */
+  
+  border-radius: 0px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #111;  /*스크롤바 뒷 배경 색상*/
+}
+
+
+
+#root{overflow: hidden;}
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+  font-family: 'KBO-Dia-Gothic_bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: middle;
+    box-sizing: border-box;/*내가 추가*/
+    font-family: 'Titillium Web', sans-serif,"Noto Sans KR", "PingFang SC", "Apple SD Gothic Neo";
+	// font-family: "Roboto", "Noto Sans KR", "PingFang SC", "Apple SD Gothic Neo", "Microsoft YaHei UI", "Malgun Gothic", sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a{text-decoration: none;color:#000;}
+
+
+.fadeOut {
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  &::after{
+    content: "";
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../public/img/glitch.gif') center;
+    background-size: 100%;
+    z-index: 1000;
+  }
+}
+
+.fadeIn {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+
+header{
+    box-shadow: inset 0 15px 8px rgba(0, 0, 0, 0.2);
+    padding:20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    h1{
+      width: 170px;
+      float: left;
+      img{
+        width: 100%;
+      }
+    }//h1 : END
+  .menu{
+    position: absolute;
+    right:45px;
+    top:45px;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    &.on{
+      span{
+        width: 0;
+        background: #fff;
+        &::after{
+          background: #fff;
+          transform: rotate(225deg);
+          top: 0;
+        }
+        &::before{
+          width: 40px;
+          background: #fff;
+          transform: rotate(-225deg);
+          top: 0;
+        }
+      }
+      ul.gnb{
+        right: 0;
+        
+      }
+    }//.on : END
+    span{
+      display: block;
+      position: relative;
+      width: 40px;
+      height: 5px;
+      background: #fff;
+      transition: 0.4s;
+        cursor: pointer;
+        z-index: 13;
+      &::after{
+        display: block;
+        content: "";
+        position: absolute;
+        top:-12px;
+        left: 0;
+        width: 40px;
+        height: 5px;
+        transition: 0.4s;
+        background: #fff;
+      }
+      &::before{
+        display: block;
+        content: "";
+        position: absolute;
+        top:12px;
+        left: 0;
+        width: 25px;
+        height: 5px;
+        transition: 0.4s;
+        background: #fff;
+      }
+    }
+    ul.gnb{
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      transition: 1s;
+      z-index: 11;
+
+      display: flex;
+      // align-items: flex-start;
+      // justify-content: start;
+      padding: 185px 40%;
+      font-weight: bold;
+      background: rgb(255, 195, 0);
+      // li{}
+    }
+
+
+    $transition: all ease 150ms;
+      ul {
+            display: inline-flex;
+            flex-direction: column;
+            align-items:center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-size: 6rem;
+            position:relative;
+            
+            & > * + * {
+              margin-top: 15px;
+            }
+        
+            li {
+              font-family: "Anton";
+              color: #ffc300;
+              width: fit-content;
+              position: relative;
+              height: 60px;
+              transition: $transition;
+              font-size: 60px;
+              cursor: pointer;
+              text-align: center;
+              text-transform: uppercase;
+              transform: skew(0deg) translateX(0);
+                a{
+                  color: #111;
+                  font-family: "Anton";
+                }
+                &:hover { 
+                  color: white;
+                  transform: skew(12deg) translateX(-10px);
+                }
+                  
+                &::before {
+                  display: block;
+                  padding: 0 20px;
+                  top:05px;
+                  left: 50%;
+                  height: 50%;
+                  transform: translateX(-50%);
+                  transition: $transition;
+                  text-transform: uppercase;
+                  overflow:hidden;
+                  background: #111;
+                  content: attr(data-text);
+                  position: absolute;
+                }
+                
+                &:hover::before {
+                  margin-left: 20px;
+                  color: white;
+                }
+              
+                &:after {
+                  opacity: 0;
+                  content: "";
+                  position: absolute;
+                  left: 50%;
+                  top: 55%;
+                  transform: translateY(-50%, -50%);
+                  height: 5px;
+                  background: #ff0083;
+                  overflow:hidden;
+                  z-index: 9;
+                  width: 0;
+                  transition: $transition;
+                  transform-origin: center;
+                  transform: skew(5deg);
+                }
+                
+                &:hover::after {
+                  opacity: 1;
+                  width: 110%;
+                  left: -2%;
+                  transform-origin: center;
+                }
+            }
+        
+        
+          }
+
+  }//menu : END
+}//header : END
+
+
+.glitchImg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 12;
+  opacity: 0.7;
+  transition: 0.4s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 비주얼 시작
+
+.visual{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('https://calm-kelpie-91663e.netlify.app/img/bg01.webp')no-repeat bottom;
+  background-size: 100%;
+}
+.container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 35%;
+  left: 50%;
+}
+
+.glitch {
+  color: #8800ff;
+  position: relative;
+  font-size: 430px;
+  letter-spacing: -10px;
+  font-family: 'Anton';
+  animation: glitch 3s 2s infinite, shake 2s infinite,glitch-color 10s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  background: #212121;
+  overflow: hidden;
+  top: 0;
+}
+
+.glitch::before {
+  text-shadow: -5px 0 magenta;
+  animation: noise-1 2s linear infinite alternate-reverse, glitch 3s 2.1s infinite;
+}
+
+.glitch::after {
+  text-shadow: -5px 0 lightgreen;
+  animation: noise-2 2s linear infinite alternate-reverse, glitch 3s 2s infinite;
+}
+@keyframes glitch-color {
+  0% {
+    color: #8800ff;
+  }
+  20% {
+    color: #8800ff;
+  }
+  50% {
+    color: #ffc300;
+  }
+  75% {
+    color: #8800ff;
+  }
+  90% {
+    color: magenta;
+  }
+  100% {
+    color: #8800ff;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: skewX(-10deg) translateX(-2px);
+  }
+  5% {
+    transform: skewX(10deg) translateX(2px);
+  }
+  10% {
+    transform: skewX(-5deg) translateX(-1px);
+  }
+  15% {
+    transform: skewX(5deg) translateX(1px);
+  }
+  20% {
+    transform: skewX(-2deg) translateX(-0.5px);
+  }
+  100% {
+    transform: skewX(0deg) translateX(0);
+  }
+}
+
+@keyframes noise-1 {
+  0%, 100% {
+    clip-path: inset(0 0 0 0);
+  }
+  5% {
+    clip-path: inset(5% 0 95% 0);
+  }
+  10% {
+    clip-path: inset(10% 0 90% 0);
+  }
+  15% {
+    clip-path: inset(15% 0 85% 0);
+  }
+  20% {
+    clip-path: inset(20% 0 80% 0);
+  }
+  25% {
+    clip-path: inset(25% 0 75% 0);
+  }
+  30% {
+    clip-path: inset(30% 0 70% 0);
+  }
+  35% {
+    clip-path: inset(35% 0 65% 0);
+  }
+  40% {
+    clip-path: inset(40% 0 60% 0);
+  }
+  45% {
+    clip-path: inset(45% 0 55% 0);
+  }
+  50% {
+    clip-path: inset(50% 0 50% 0);
+  }
+  55% {
+    clip-path: inset(55% 0 45% 0);
+  }
+  60% {
+    clip-path: inset(60% 0 40% 0);
+  }
+  65% {
+    clip-path: inset(65% 0 35% 0);
+  }
+  70% {
+    clip-path: inset(70% 0 30% 0);
+  }
+  75% {
+    clip-path: inset(75% 0 25% 0);
+  }
+  80% {
+    clip-path: inset(80% 0 20% 0);
+  }
+  85% {
+    clip-path: inset(85% 0 15% 0);
+  }
+  90% {
+    clip-path: inset(90% 0 10% 0);
+  }
+  95% {
+    clip-path: inset(95% 0 5% 0);
+  }
+}
+
+@keyframes noise-2 {
+  0%, 100% {
+    clip-path: inset(0 0 0 0);
+  }
+  5% {
+    clip-path: inset(95% 0 5% 0);
+  }
+  10% {
+    clip-path: inset(90% 0 10% 0);
+  }
+  15% {
+    clip-path: inset(85% 0 15% 0);
+  }
+  20% {
+    clip-path: inset(80% 0 20% 0);
+  }
+  25% {
+    clip-path: inset(75% 0 25% 0);
+  }
+  30% {
+    clip-path: inset(70% 0 30% 0);
+  }
+  35% {
+    clip-path: inset(65% 0 35% 0);
+  }
+  40% {
+    clip-path: inset(60% 0 40% 0);
+  }
+  45% {
+    clip-path: inset(55% 0 45% 0);
+  }
+  50% {
+    clip-path: inset(50% 0 50% 0);
+  }
+  55% {
+    clip-path: inset(45% 0 55% 0);
+  }
+  60% {
+    clip-path: inset(40% 0 60% 0);
+  }
+  65% {
+    clip-path: inset(35% 0 65% 0);
+  }
+  70% {
+    clip-path: inset(30% 0 70% 0);
+  }
+  75% {
+    clip-path: inset(25% 0 75% 0);
+  }
+  80% {
+    clip-path: inset(20% 0 80% 0);
+  }
+  85% {
+    clip-path: inset(15% 0 85% 0);
+  }
+  90% {
+    clip-path: inset(10% 0 90% 0);
+  }
+  95% {
+    clip-path: inset(5% 0 95% 0);
+  }
+}
+
+
+@keyframes shake {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-0.1px) translateY(-0.1px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(0.1px) translateY(0.1px);
+  }
+}
+
+.scanlines {
+  overflow: hidden;
+  mix-blend-mode: difference;
+}
+
+.scanlines::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 0.5%,
+    transparent 1%
+  );
+  animation: fudge 7s ease-in-out alternate infinite;
+}
+
+@keyframes fudge {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.glow {
+  color: transparent;
+  text-shadow: 0 0 1000px rgb(223, 191, 191);
+}
+
+.subText{
+  position: absolute;
+  left: 23%;
+  bottom: 26.5%;
+  z-index: 3;
+  .tex{
+    color: #fff;
+    font-size:16px;
+    display: inline-block;
+    line-height: 1.5;
+    width: 550px;
+    margin-left: 60px;
+    span{
+      color:#ffc300;
+      font-weight: bold;    
+      vertical-align: revert;
+    }
+  }
+  .subtitle {
+    font-family: "Poppins";
+    white-space:nowrap;
+    font-weight: 900;
+    font-size:100px;
+    color:#fff;
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: 0;
+
+  }
+  
+}
+
+
+
+
+.img_h{
+  position: absolute;
+  top: 18%;
+  right: 16%;
+  z-index: 2;
+  transform: scaleX(-1);
+  &.two{
+    position: absolute;
+      top: 11%;
+      right: 8%;
+      z-index: 2;
+      transform: scaleX(1);
+      opacity: 0.95;
+      filter: grayscale(12) blur(0.5px);
+      img{
+        width: 850px;
+      }
+  }
+}//아그리파 사진
+
+
+.boxLine{
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  right: 13%;
+  width: 600px;
+  height:700px;
+  border: 25px solid rgb(255, 0, 0);
+  animation: moveAndRotate 8s ease-in-out  infinite;
+  @keyframes moveAndRotate {
+    0% {
+      transform: translateX(0px) rotate(-2deg);
+    }
+    50% {
+      transform: translateX(00px) rotate(-12deg);
+    }
+    100% {
+      transform: translateX(0px) rotate(-2deg);
+    }
+  }
+  &.two{
+    width: 400px;
+    height: 500px;
+    top: 21%;
+    right: 18%;
+    border: 20px solid rgb(255, 0, 0);
+    z-index: -2;
+    filter: blur(10px);
+    animation: moveAndRotate2 10s ease-in-out  infinite;
+    @keyframes moveAndRotate2 {
+      0% {
+        transform: translateX(0px) rotate(-4deg);
+      }
+      50% {
+        transform: translateX(00px) rotate(-12deg);
+      }
+      100% {
+        transform: translateX(0px) rotate(-4deg);
+      }
+    }
+  }
+}
+
+
+
+
+$pale-white: #f6f6f6;
+@mixin cover(){
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+}
+@mixin round($radius){
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin big(){
+    font-family: 'Montserrat', sans-serif;
+}
+@mixin anime($time, $cubic){
+    -webkit-transition: all $time $cubic;
+    -moz-transition: all $time $cubic;
+    -o-transition: all $time $cubic;
+    transition: all $time $cubic;
+}
+@mixin center(){
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+  .threee{
+    position: absolute;
+    z-index: 10;
+    top: 81%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    background-size: cover;
+
+      @include cover();
+        #button{
+            width: 122px;
+            padding: 16px;
+            height: 50px;
+
+            position:absolute;
+            @include center();
+            background: transparent;
+            @include anime(0.6s, (cubic-bezier(.55,0,.1,1)));
+            cursor: pointer;
+            box-shadow: 0px 0px 0px #fff;
+            z-index: 0;
+            span{
+              color: $pale-white;
+              font-family:"Anton";
+              font-size: 22px;
+              color:#ffc300;
+              transition: 0.6s;
+              position: absolute;
+              top: 15px;
+              left: 5px;
+            }
+            .ring{
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background: #fff;
+                @include round(50px);
+                top: 40%;
+                left: 45%;
+                @include anime(1.5s,(cubic-bezier(.55,0,.1,1)));
+                transform:perspective(500px)  translate3d(0px, 0px,0px);
+                opacity: 0.0;
+            }
+            
+            &:hover .one{
+                transform:perspective(500px)  translate3d(-90px, -50px,150px);
+                opacity: 1;
+            }
+              &:hover .two{
+                transform:perspective(800px)  translate3d(-130px, 50px,180px);
+                opacity: 0.6;
+            }
+              &:hover .three{
+                transform:perspective(800px)  translate3d(130px, 50px,30px);
+                opacity: 0.2;
+            }
+            &:hover .four{
+                transform:perspective(800px)  translate3d(130px, -120px,80px);
+                opacity: 0.9;
+            }
+            &::after{
+              position: absolute;
+                top: -35px;
+                left:0;
+              width: 150px;
+              height: 150px;
+                content: "";
+                background: #fff;
+                z-index: -1;
+                transform:perspective(800px) scale(0.0) rotate(0deg);
+                @include anime(1.5s,(cubic-bezier(.55,0,.1,1)));
+            }
+            &:before{
+                position: absolute;
+                top: -45px;
+                left: -17px;
+                width: 160px;
+                height: 160px;
+                border: solid 1px #fff;
+                content: "";
+                background:transparent;
+                z-index: -1;
+                transform:perspective(800px) scale(0.4) rotate(0deg);
+                @include anime(1.5s, (cubic-bezier(.55,0,.1,1)));
+            }
+            &:hover::after{
+              transform:perspective(800px) scale(1.0) rotate(600deg);
+              
+            }
+            &:hover::before{
+                transform:perspective(800px) scale(1.0) rotate(-100deg);
+            }
+            &:hover{
+                color: #111;
+                span{
+                  color: $pale-white;
+                  font-family:"Anton";
+                  font-size: 22px;
+                  color:#111;
+                  top: 30px;
+                  left: 45px;
+                }
+            }
+            
+        }
+  }
+// 비주얼 끝
+
+
+
+
+.tape_img{
+  position: absolute;
+
+
+  &.left{
+    left:-50px;
+    bottom:0;
+    transform: rotate(35deg);
+  }
+  &.right{
+    right:-50px;
+    top:0;
+    transform: rotate(35deg);
+  }
+}
+
+
+
+
+///메인 색션시작//어바웃 색션1
+
+.console-text {
+  font-size: 4em;
+}
+.lamp{
+  position: absolute;
+  left: 5%;
+  top:-5%;
+  z-index: 1;
+}
+
+.MainSection1{
+  // background: url('../public/img/bg01B.webp') no-repeat bottom #ffc300;
+  position: relative;
+  background:#ffc300;
+  background-size: 100%;
+  height: 100vh;
+  overflow: hidden;
+  .MainSection1BG{
+    position: absolute;
+    bottom:-1px;
+    width: 100%;
+    z-index: 2;
+  }
+  .aboutTitle{
+    position: absolute;
+    top: 33%;
+    left: 67%;
+    transform: translate(-50%,-50%);
+  }
+  .txt{
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    font-family: "KBO-Dia-Gothic_bold";
+    position: relative;
+    z-index: 10;
+    text-align: right;
+    width: 72%;
+    float: right;
+
+    span{
+      cursor: pointer;
+      font-family: "KBO-Dia-Gothic_bold";
+      font-size: 18px;
+      position: relative;
+      vertical-align: baseline;
+      &::before{
+        content: '';
+        display: block;
+        position:absolute;
+        bottom:-2px;
+        left: 0;
+        background: #8800ff;
+        width: 100%;
+        height: 5px;
+        z-index:1;
+      }
+    }
+  }
+  .txtRotate{
+    transform: rotate(28deg);
+    position: absolute;
+    bottom: -20%;
+    left: -8%;
+    width: 80%;
+    font-size: 150px;
+    color: #fff;
+    font-family:"Anton";
+    z-index: 1;
+    transition: 0.5s;
+    &:nth-child(1){
+      bottom: 40%;
+      left: -5%;
+      z-index: 1;
+      transform: rotate(28deg) translateX(10%);
+    }
+    &:nth-child(2){
+      bottom: 25%;
+      left: -8%;
+      z-index: 1;
+      transform: rotate(28deg) translateX(3%);
+    }
+    &:nth-child(3){
+      bottom: 1%;
+      left: -2.5%;
+      z-index: 1;
+      transform: rotate(28deg) translateX(0%);
+    }
+    &:nth-child(4){
+      bottom: -13.5%;
+      left: -7%;
+      z-index: 1;
+      transform: rotate(28deg) translateX(0%);
+    }
+
+  }
+  .tape_img{
+    &.left{
+      left: -80px;
+      top: -20px;
+      bottom: auto;
+    }
+    &.right{
+      right: -60px;
+      top: auto;
+      bottom: 100px;
+    }
+  }
+  .glitch {
+    color: #111;
+    position: relative;
+    font-size: 430px;
+    letter-spacing: -10px;
+    font-family: 'Anton';
+    animation: glitch 3s 2s infinite, shake 2s infinite;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    background: #ffc300;
+    overflow: hidden;
+    top: 0;
+  }
+  
+  .glitch::before {
+    text-shadow: -5px 0 magenta;
+    animation: noise-1 3s linear infinite alternate-reverse, glitch 1.5s 2.1s infinite;
+  }
+  
+  .glitch::after {
+    text-shadow: -5px 0 lightgreen;
+    animation: noise-2 2.5s linear infinite alternate-reverse, glitch 1.5s 2s infinite;
+  }
+}
+
+
+
+
+
+ 
+.aboutBtn{
+  position: absolute;
+  left: 1%;
+  top: 24%;
+  z-index: 0;
+  width: 500px;
+  height: 500px;
+}
+    .button_w {
+  
+      p {
+        margin: 30px auto;
+        text-align: center;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        color: #e47d68;
+        padding: 10px;
+        border-top: 2px solid #527c8c;
+        border-bottom: 2px solid #527c8c;
+        width: 281px;
+        -webkit-text-shadow: 1px 1px 1px #000000;
+        -moz-text-shadow: 1px 1px 1px #000000;
+        -o-text-shadow: 1px 1px 1px #000000;
+        text-shadow: 1px 1px 1px #000000;
+      }
+      h2 {
+        position: absolute;
+        line-height: 1;
+        margin: 0;
+        text-align: center;
+        transform: none;
+        z-index: 100000;
+        text-transform: uppercase;
+        font-weight: bold;
+        /* visibility: visible; */
+        -webkit-opacity: 0;
+        -moz-opacity: 0;
+        -o-opacity: 0;
+        opacity: 0;
+        color: RED;
+        -webkit-text-shadow: 1px 1px 1px #333333;
+        -moz-text-shadow: 1px 1px 1px #333333;
+        -o-text-shadow: 1px 1px 1px #333333;
+        text-shadow: 1px 1px 1px #333333;
+        font-size: 40px;
+      }
+    }
+  
+
+  
+    .all {
+      background-color: none;
+      position: relative;
+      width:500px;
+      height: 500px;
+      border-radius: 0%;
+      overflow: visible;
+  
+      .one {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background-color: #ffc300;
+        border-radius: 0%;
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
+        z-index: 4;
+
+      }
+  
+      .two {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background-color: #ff0083;
+        border-radius: 0%;
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+        z-index: 3;
+      }
+  
+      .three {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background-color: #666;
+        border-radius: 0%;
+        -webkit-transition: 1.5s;
+        -moz-transition: 1.5s;
+        -o-transition: 1.5s;
+        transition: 1.5s;
+        z-index: 2;
+      }
+  
+      .four {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background-color: #8800ff;
+        border-radius: 0%;
+        -webkit-transition: 2s;
+        -moz-transition: 2s;
+        -o-transition: 2s;
+        transition: 2s;
+        z-index: 1;
+      }
+  
+      .circle {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background-color: none;
+        border-radius: 0%;
+        -webkit-transition: .5s ;
+        -moz-transition: .5s ;
+        -o-transition: .5s ;
+        transition: .5s ;
+        z-index: 5;
+      }
+    }
+  
+    .all.on {
+      .one {
+        -webkit-transform: rotate(-45deg) scale(.8);
+        -moz-transform: rotate(-45deg) scale(.8);
+        -o-transform: rotate(-45deg) scale(.8);
+        transform: rotate(-45deg) scale(.8);
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -o-box-shadow: none;
+        box-shadow: none;
+      }
+  
+      .two {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+  
+      .three {
+        -webkit-transform: rotate(-225deg) scale(1.3);
+        -moz-transform: rotate(-225deg) scale(1.3);
+        -o-transform: rotate(-225deg) scale(1.3);
+        transform: rotate(-225deg) scale(1.3);
+
+      }
+  
+      .four {
+        -webkit-transform: rotate(450deg) scale(1.5);
+        -moz-transform: rotate(450deg) scale(1.5);
+        -o-transform: rotate(450deg) scale(1.5);
+        transform: rotate(450deg) scale(1.5);
+      }
+  
+      .circle {
+        background-color: #111;
+        border-radius: 0%;
+        -webkit-transform: rotate(-45deg) scale(.7);
+        -moz-transform: rotate(-45deg) scale(.7);
+        -o-transform: rotate(-45deg) scale(.7);
+        transform: rotate(-45deg) scale(.7);
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+      }
+    }
+  
+
+
+
+
+
+///메인 색션시작 끝
+
+
+////색션2
+///////////////////////////////////////////////////////////////MainSection2 색션2////////////
+.MainSection2{
+  position: relative;
+  width: 100%;
+  height: 120vh;
+  // background:url('../public/img/bg03.webp') #212121 no-repeat bottom;
+  .MainSection4Bg{
+    position: absolute;
+    bottom:-1px;
+    left: 0;
+    width: 100%;
+  }
+  .center{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+
+
+  }//center: END
+  .tape_img.three{
+    &.left{
+      bottom: auto;
+      top: -20px;
+      transform: rotate(135deg);
+    }
+    &.right{
+      top: -40px;
+      right: -115px;
+      opacity: 0.5;
+    }
+  }
+
+  .projectList{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 88%;
+    transform: translate(-50%, -50%);
+    display: flex;
+
+    li{
+      cursor: pointer;
+      flex: 1;
+      text-align: center;
+      transition: 0.5s;
+      position: relative;
+      &:hover{
+        .superMen{
+          transform: translate(-50%,-150%);
+          opacity: 0;
+          animation: moveUpDown2 0.3s ease-in ;
+        }  
+        @keyframes moveUpDown2 {
+          0% {
+            transform: translate(-50%,-60%);
+          }
+          50% {
+            transform: translate(-50%,-80%);
+          }
+          100% {
+            transform: translate(-50%,-150%);
+          }
+        }
+      }
+      .superMen{
+        width: 200px;
+        position: absolute;
+        left: 48%;
+        top:50%;
+        z-index: 2;
+        transform: translate(-50%,-60%);
+        animation: moveUpDown 10s ease-in-out infinite;
+      }
+      @keyframes moveUpDown {
+        0% {
+          transform: translate(-50%,-60%);
+        }
+        50% {
+          transform: translate(-50%,-45%);
+        }
+        100% {
+          transform: translate(-50%,-60%);
+        }
+      }
+      h3{
+        font-size: 80px;
+        color: #fff;
+        font-family: "Anton";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 104%;
+        transform: translate(-50%, 80%);
+        transition: 0.6s;
+        b{
+          font-family: "Anton";
+          transition: 0.3s ease-in 0.6s;
+          vertical-align: baseline;
+        }
+        span{
+          display: block;
+          font-family: "Anton";
+          margin-top: 5px;
+        }
+      }
+      .bvbLogo{
+        position: absolute;
+        width: 200px;
+        top: 19%;
+        left: -100%;
+        transition: 0.3s ease-in 0.3s;
+        transform: scale(1.61);
+        &.bvbLogoLeft{}
+        &.bvbLogoRight{
+          left: auto;
+          right: -100%;
+        }
+      }//bvbLogo : END
+      @keyframes logoEff {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 0;
+        }
+      }
+      &:hover{
+        .cucle{
+          background:url('../public/img/signulOn.png') #051b57 center no-repeat;
+          background-size: 100%;
+          transform: scale(1.15);
+          transition: 0.5s;
+        }//cucle : END
+        .bvbLogo{
+          left: -61px;
+          &.bvbLogoRight{
+            left: auto;
+            right:-61px;
+          }
+        }
+    }
+      .cucle{
+        
+        width: 430px;
+        height: 430px;
+        margin: 0 auto;
+        border-radius: 100%;
+        overflow: hidden;
+        position: relative;
+        border:15px solid #ff0000;
+        background:url('../public/img/signulBlack.png') #141414 center no-repeat;
+        background-size: 100%;
+        transition: 0.5s;
+
+      }//cucle : END
+      .cloud{
+        width: 550px;
+        position: absolute;
+        top:-20%;
+        right:-15%;
+        transform: translateX(-4%);
+        animation: cloudAnimation 20s ease-in-out infinite;
+        &.con2{
+          width: 400px;
+          top: auto;
+          bottom:15%;
+          left: 0;
+          transform: translateX(3%);
+          animation: cloudAnimation2 20s ease-in-out infinite;
+        }
+        @keyframes cloudAnimation {
+          0% {
+            transform: translateX(-4%);
+          }
+          50% {
+            transform: translateX(4%);
+          }
+          100% {
+            transform: translateX(-4%);
+          }
+        }
+        @keyframes cloudAnimation2 {
+          0% {
+            transform: translateX(3%);
+          }
+          50% {
+            transform: translateX(-3%);
+          }
+          100% {
+            transform: translateX(3%);
+          }
+        }
+      }//cloud : END
+      img{
+        width: 100%;
+      }
+
+      &:nth-child(2){
+        .cucle{
+          background:url('../public/img/bigbang.png') #141414 center no-repeat;
+          background-size: 100%;
+        }
+        .bvbLogo{
+          transition: 0.3s ease-in 0.6s;
+
+        }//bvbLogo : END
+        &:hover{
+          .cucle{
+            background:url('../public/img/bigbangOn.gif') #141414 center no-repeat;
+          }
+          h3{
+            b{color:#262729;}
+          }
+        }
+      }//두번째 li : END
+      &:nth-child(3){
+        .cucle{
+          background:url('../public/img/bun.gif') #141414 top no-repeat;
+        }
+        .popmartCitys{
+            img{
+              &:nth-child(1){
+                position: absolute;
+                top: 25%;
+                left: 10%;
+                width: 100px;
+              }
+              &:nth-child(2){
+                position: absolute;
+                bottom:8%;
+                left: 0;
+                width: 100%;
+                transform: scale(2);
+              }
+              &:nth-child(3){
+                position: absolute;
+                bottom:18%;
+                left: 0;
+                width: 100%;
+                z-index: 0;
+                transform: scale(2);
+              }
+              &:nth-child(4){
+                position: absolute;
+                bottom:10%;
+                left: 0;
+                width: 100%;
+                z-index: 0;
+                transform: scale(2);
+              }
+            }
+        }//popmartCitys : END
+        .bvbLogo{
+          transition: 0.3s ease-in 0.1s;
+        }//bvbLogo : END
+        h3{
+          transition: 0.3s 0.4s;
+          b{
+            transition: 0.3s 0.4s;
+          }
+        }
+        &:hover{
+          .cucle{
+          }
+          h3{
+            b{color:#e60021;}
+          }
+        }
+      }//세번째 li : END
+    }//li : END
+  }
+
+
+  
+
+}//MainSection2 : END
+
+
+
+
+////색션2//끝
+
+
+
+////색션3//시작
+/// 
+
+.MainSection3{
+  height: 120vh;
+  background: #ffc300;
+  position: relative;
+  overflow: hidden;
+  .center{
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+    .glitch::before, .glitch::after{
+      background: #ffc300;
+    }
+    .glitch {
+      color: #111;
+      animation: glitch 3s 2s infinite, shake 2s infinite,glitch-color3 10s infinite;
+    }
+    @keyframes glitch-color3 {
+      0% {
+        color: #1861f5;
+      }
+      20% {
+        color: #1861f5;
+      }
+      50% {
+        color: #111;
+      }
+      75% {
+        color: #8800ff;
+      }
+      90% {
+        color: magenta;
+      }
+      100% {
+        color: #1861f5;
+      }
+    }
+  }//center: END
+
+  .MainSection1BG{
+    position: absolute;
+    bottom:-1px;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+  }
+}//MainSection3 : END
+
+
+
+
+
+////색션3//끝
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

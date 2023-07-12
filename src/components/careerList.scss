@@ -1,0 +1,156 @@
+
+.careerList .careerMenu .tabContent ul::-webkit-scrollbar {
+    width: 0px;  /* 스크롤바의 너비 */
+  }
+  
+  .careerList .careerMenu .tabContent ul::-webkit-scrollbar-thumb {
+    height: 0; /* 스크롤바의 길이 */
+    width: 0;
+    background: #ff0000; /* 스크롤바의 색상 */
+    
+    border-radius: 0px;
+  }
+  
+  .careerList .careerMenu .tabContent ul::-webkit-scrollbar-track {
+    background: #111;  /*스크롤바 뒷 배경 색상*/
+  }
+
+.careerList{
+
+    button{
+        cursor: pointer;
+        background:#fff;
+        width: 100px;
+        height: 40px;
+        border: 0;
+        position: absolute;
+        top: 60%;
+        left: -30px;
+        font-size:20PX;
+        overflow: hidden;
+        font-family: "ANTON";
+        letter-spacing: 2px;
+        transform: translateY(-50%) rotate(90deg);
+        transition: 0.2s;
+        &:hover{
+            height:80px;
+            padding-bottom: 30px;
+            background: #111;
+            color: #fff;
+        }
+    }
+    .careerMenu{
+        display: flex;
+        position: fixed;
+        top:0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background:#fff;
+        transition: 1s;
+        z-index: 102;
+        &.on{
+            left: 0;
+        }
+        .tabMenu{
+            // transform: rotate(90deg);
+            // transform: rotate(90deg) translateX(50%) translateY(530px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100.31%;
+            margin-top: -2.5px;
+            li{
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+                text-align: center;
+                line-height: 100px;
+                height: 33.33%;
+                background: #ffc300;
+                color: #111;
+                font-size: 30px;
+                border:3px solid #111;
+                margin-bottom: -1.5px;
+                cursor: pointer;
+                font-family: "ANTON";
+                transition: 0.5s;
+
+                &:hover{
+                    transform: translate(10px, 10px);
+                }
+            }
+        }
+        .tabContent{
+            width: 100%;
+            ul{
+                overflow: auto;
+                height: 100vh;
+                li{
+                    display: none;
+                    &:nth-child(2){
+                        p{
+                            span{
+                                &.on{
+                                    transform: rotate(0deg) translateY(-50px) translateX(-50%);
+                                    font-size: 40px;
+                                    position: relative;
+                                    z-index: -1;
+                                }
+                            }
+                        }
+                    }
+                    p{
+                        padding: 35px 50px;
+                        position: relative;
+                        span{
+                            display: inline-block;
+                            font-size: 30px;
+                            color:#ff0000;
+                            font-family: "ANTON","KBO-Dia-Gothic_bold";
+                            transform: rotate(-30deg) translateY(-100%) translateX(-50%);
+                            &.on{
+                                color:#1763fb;
+                            }
+                        }//span : END
+                        strong{
+                            font-size:16px;
+                            font-family: "Anton";
+                            color:#ffc300;
+                            position: absolute;
+                            left: 5%;
+                            bottom: 10px;
+                        }
+                        a{
+                            font-family:"KBO-Dia-Gothic_bold";
+                            font-size: 100px;
+                        }
+                    }
+                    
+
+                    &.on{
+                        display: block;
+                    }
+                }
+            }
+        }//tabContent : END
+    }//careerMenu : END
+    .bg{
+        position: fixed;
+        left: 0;
+        top:0;
+        z-index: 101;
+        background: #111;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        display: none;
+        transition: 0.3s;
+        &.on{
+            opacity: 0.95;
+            display: block;
+        }
+    }
+}
